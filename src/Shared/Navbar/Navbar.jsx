@@ -1,26 +1,26 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const navLists = (
     <>
       <li>
-        <Link to='/'>Home</Link>
+        <NavLink className={({ isActive,  }) =>isActive ? "text-black" : "" } to='/'>Home</NavLink>
       </li>
       <li>
-        <Link to='/instructors'>Instructors</Link>
+        <NavLink className={({ isActive,  }) =>isActive ? "text-blue-400" : "" } to='/instructors'>Instructors</NavLink>
       </li>
       <li>
-        <Link to='/classes'>Classes</Link>
+        <NavLink className={({ isActive,  }) =>isActive ? "text-blue-400" : "" } to='/classes'>Classes</NavLink>
       </li>
       <li>
-        <Link to='/dashboard'>Dashboard</Link>
+        <NavLink className={({ isActive,  }) =>isActive ? "text-blue-400" : "" } to='/dashboard'>Dashboard</NavLink>
       </li>
     </>
   );
 
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-[#49c5b6] text-white font-bold font-serif">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -46,7 +46,7 @@ const Navbar = () => {
             {navLists}
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+        <a className="btn btn-ghost normal-case text-xl">Sunshine Summer Camp</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navLists}</ul>
