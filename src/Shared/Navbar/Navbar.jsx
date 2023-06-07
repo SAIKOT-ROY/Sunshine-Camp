@@ -1,20 +1,52 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProviders";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+  console.log(user);
+
+  // Logout function
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.log(error.message));
+  };
+
   const navLists = (
     <>
       <li>
-        <NavLink className={({ isActive,  }) =>isActive ? "text-black" : "" } to='/'>Home</NavLink>
+        <NavLink
+          className={({ isActive }) => (isActive ? "text-black" : "")}
+          to="/"
+        >
+          Home
+        </NavLink>
       </li>
       <li>
-        <NavLink className={({ isActive,  }) =>isActive ? "text-blue-400" : "" } to='/instructors'>Instructors</NavLink>
+        <NavLink
+          className={({ isActive }) => (isActive ? "text-blue-400" : "")}
+          to="/instructors"
+        >
+          Instructors
+        </NavLink>
       </li>
       <li>
-        <NavLink className={({ isActive,  }) =>isActive ? "text-blue-400" : "" } to='/classes'>Classes</NavLink>
+        <NavLink
+          className={({ isActive }) => (isActive ? "text-blue-400" : "")}
+          to="/classes"
+        >
+          Classes
+        </NavLink>
       </li>
       <li>
-        <NavLink className={({ isActive,  }) =>isActive ? "text-blue-400" : "" } to='/dashboard'>Dashboard</NavLink>
+        <NavLink
+          className={({ isActive }) => (isActive ? "text-blue-400" : "")}
+          to="/dashboard"
+        >
+          Dashboard
+        </NavLink>
       </li>
     </>
   );
@@ -46,13 +78,28 @@ const Navbar = () => {
             {navLists}
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl">Sunshine Summer Camp</a>
+        <a className="btn btn-ghost normal-case text-xl">
+          Sunshine Summer Camp
+        </a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navLists}</ul>
       </div>
       <div className="navbar-end">
-        <Link to='/login' className="btn btn-ghost">Login</Link>
+        {user ? (
+          <>
+            <button className="btn btn-ghost" onClick={handleLogOut}>Log Out</button>
+            <img
+              className="rounded-full w-10 ml-3"
+              src={user.photoURL}
+              alt=""
+            />
+          </>
+        ) : (
+          <>
+            <button className="btn btn-ghost"><Link to="/login">Login</Link></button>
+          </>
+        )}
       </div>
     </div>
   );
