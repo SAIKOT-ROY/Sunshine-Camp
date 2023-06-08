@@ -12,7 +12,7 @@ const TopClass = () => {
 
   return (
     <div>
-      <p className="text-4xl font-bold text-center my-7">
+      <p className="text-4xl font-bold text-center my-10 font-serif">
         Popular Class Section
       </p>
       <div className="grid md:grid-cols-3 justify-items-center md:max-w-screen-2xl mx-auto gap-7 items-center">

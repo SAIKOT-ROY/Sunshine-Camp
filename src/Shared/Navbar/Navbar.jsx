@@ -26,7 +26,7 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          className={({ isActive }) => (isActive ? "text-blue-400" : "")}
+          className={({ isActive }) => (isActive ? "text-black" : "")}
           to="/instructors"
         >
           Instructors
@@ -34,7 +34,7 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          className={({ isActive }) => (isActive ? "text-blue-400" : "")}
+          className={({ isActive }) => (isActive ? "text-black" : "")}
           to="/classes"
         >
           Classes
@@ -42,7 +42,7 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          className={({ isActive }) => (isActive ? "text-blue-400" : "")}
+          className={({ isActive }) => (isActive ? "text-black" : "")}
           to="/dashboard"
         >
           Dashboard

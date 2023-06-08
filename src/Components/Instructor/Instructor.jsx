@@ -13,9 +13,9 @@ const Instructor = () => {
     }
   );
   return (
-    <div>
-      <p className="text-4xl font-bold text-center">Instructor Section</p>
-      <div className="grid md:grid-cols-3 justify-items-center md:max-w-screen-2xl mx-auto gap-7 items-center">
+    <div className="mb-20">
+      <p className="text-4xl font-bold text-center my-16 font-serif">Instructor Section</p>
+      <div className="grid md:grid-cols-3 justify-items-center md:max-w-screen-2xl mx-auto gap-10 items-center">
         {instructors?.slice(0, 6)?.map((instructor) => (
           <TopInstructor
             key={instructor?._id}
