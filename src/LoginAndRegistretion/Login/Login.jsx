@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { SiGoogle } from "react-icons/si";
+import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../Providers/AuthProviders";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import { Player } from "@lottiefiles/react-lottie-player";
+import lottieLogin from "../../assets/lottieAnimation/142230-login.json";
 
 const Login = () => {
   const { googleLogin, logIn } = useContext(AuthContext);
@@ -21,6 +23,13 @@ const Login = () => {
         const signedUser = result.user;
         console.log(signedUser);
         reset();
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "You Have successfully logged in",
+          showConfirmButton: false,
+          timer: 1500,
+        });
       })
       .catch((error) => {
         console.log(error.message);
@@ -35,23 +44,29 @@ const Login = () => {
         const user = result.user;
         console.log(user);
         Swal.fire({
-          position: 'center',
-          icon: 'success',
-          title: 'You Have successfully logged in',
+          position: "center",
+          icon: "success",
+          title: "You Have successfully logged in",
           showConfirmButton: false,
-          timer: 1500
-        })
+          timer: 1500,
+        });
       })
       .catch((error) => console.log(error.message));
   };
 
   return (
-    <div className="md:flex flex-col justify-center md:flex-row-reverse mt-44 md:gap-20">
+    <div className="md:flex flex-col justify-center items-center md:flex-row mt-44 md:gap-20">
       <div className="md:w-1/3">
-        <img
+        {/* <img
           src="https://i.ibb.co/yfvFmpy/Blue-Green-Cute-Illustration-Kids-Summer-Camp-Instagram-Post.png"
           alt=""
-        />
+        /> */}
+        <Player
+          autoplay
+          loop
+          src={lottieLogin}
+          style={{ height: "500px", width: "500px" }}
+        ></Player>
       </div>
       <div className="border my-10 md:w-1/3 px-10 pb-32 pt-10 rounded-lg shadow-md  bg-gray-100">
         <div>
@@ -100,7 +115,7 @@ const Login = () => {
           className="border border-black shadow bg-white btn-outline text-black rounded-lg my-10 h-12 flex text-center justify-center items-center gap-2"
         >
           <p className="font-semibold text-xl">Google</p>
-          <SiGoogle className="w-10 h-6" />
+          <FcGoogle className="w-10 h-6" />
         </div>
         <p className="font-medium text-center">
           Are you new Here ?

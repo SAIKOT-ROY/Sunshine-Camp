@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { BsFacebook } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import { SiGoogle } from "react-icons/si";
+import { FcGoogle } from "react-icons/fc";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../Providers/AuthProviders";
 
@@ -137,7 +137,7 @@ const Register = () => {
           className="border border-black shadow bg-grey-50 btn-outline text-black rounded-lg my-10 h-12 flex text-center justify-center items-center gap-2"
         >
           <p className="font-semibold text-xl">Google</p>
-          <SiGoogle className="w-10 h-6" />
+          <FcGoogle className="w-10 h-6" />
         </div>
         <div className="border border-gray-50 shadow btn-neutral bg-blue-500 text-white rounded-lg my-10 h-12 flex text-center justify-center items-center gap-2">
           <p className="font-semibold text-xl">Facebook</p>
