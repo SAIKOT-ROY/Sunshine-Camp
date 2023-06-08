@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { SiGoogle } from "react-icons/si";
 import { AuthContext } from "../../Providers/AuthProviders";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const { googleLogin, logIn } = useContext(AuthContext);
@@ -33,6 +34,13 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'You Have successfully logged in',
+          showConfirmButton: false,
+          timer: 1500
+        })
       })
       .catch((error) => console.log(error.message));
   };
