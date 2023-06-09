@@ -10,11 +10,25 @@ const SelectedC = () => {
     return res?.data;
   });
 
+  // Delete Function
+  const handleClassDelete = (_id) => {
+      console.log(_id)
+      axiosSecure.delete(`/selectedClass/:${_id}`)
+      .then(res => {
+        console.log(res?.data)
+      })
+      .catch(error => {
+        console.log(error.message)
+      })
+  }
+
+
+
   return (
     <div>
-      <p>HI amake select korse</p>
+      <p className="text-center text-4xl font-extrabold">Selected Class</p>
       <div>
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto my-14 bg-white rounded">
           <table className="table">
             <thead>
               <tr>
@@ -50,7 +64,9 @@ const SelectedC = () => {
                     <td>{clData?.instructor}</td>
                     <td>{clData?.available_seats}</td>
                     <th>
-                      <button className="btn btn-ghost bg-red-600 text-white  btn-sm"><FiTrash2 className="w-6 h-6" /></button>
+                      <button
+                       onClick={() => handleClassDelete(clData?._id)}
+                       className="btn btn-ghost bg-red-600 text-white  btn-sm"><FiTrash2 className="w-6 h-6" /></button>
                     </th>
                     <th>
                       <button className="btn btn-ghost bg-gray-700 text-white btn-sm"><IoCard className="w-6 h-6"/></button>
