@@ -40,14 +40,16 @@ const Navbar = () => {
           Classes
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          className={({ isActive }) => (isActive ? "text-black" : "")}
-          to="/dashboard"
-        >
-          Dashboard
-        </NavLink>
-      </li>
+     {
+      user ?  <li>
+      <NavLink
+        className={({ isActive }) => (isActive ? "text-black" : "")}
+        to="/dashboard"
+      >
+        Dashboard
+      </NavLink>
+    </li> : " "
+     }
     </>
   );
 
@@ -73,7 +75,7 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-[#49c5b6] rounded-box w-52"
           >
             {navLists}
           </ul>

@@ -9,6 +9,7 @@ import InstaructerProfile from "../Pages/InstructerProfile/InstaructerProfile";
 import SelectClass from "../Pages/SelectClass/SelectClass";
 import DashboardPage from "../Pages/DashboardPage/DashboardPage";
 import PrivateRoute from "./PrivateRoute";
+import SelectedC from "../Components/SelectedC/SelectedC";
 
 
 export const router = createBrowserRouter([
@@ -39,7 +40,13 @@ export const router = createBrowserRouter([
         },
         {
           path: '/dashboard',
-          element: <PrivateRoute><DashboardPage /></PrivateRoute>
+          element: <PrivateRoute><DashboardPage /></PrivateRoute>,
+          children:[
+            {
+                path:"/dashboard/select-class",
+                element: <SelectedC />
+            }
+          ]
         }
     ]
   },

@@ -1,15 +1,15 @@
 import React from "react";
 import Dashboard from "../../Components/Dashboard/Dashboard";
-import DashboardDetails from "../../Components/DashboardDetails/DashboardDetails";
+import { Outlet } from "react-router-dom";
 
 const DashboardPage = () => {
   return (
-    <div className="grid grid-cols-2">
-      <div className=" bg-black col-span-2">
+    <div className="relative min-h-screen md:flex">
+      <div className=" bg-black text-white w-1/4 flex-1">
         <Dashboard />
       </div>
-      <div className="col-span-2 bg-slate-300">
-        <DashboardDetails />
+      <div className="w-3/4 bg-slate-300 p-5">
+        <Outlet />
       </div>
     </div>
   );

@@ -1,8 +1,42 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
+import axiosSecure from "../../Hooks/useAxioxSecure";
+import Swal from "sweetalert2";
 
 const ClassCard = ({ cData }) => {
   const { user } = useContext(AuthContext);
+  const { class_name, price, available_seats, img, instructor, _id } = cData;
+
+  const handleSelectClass = (cData) => {
+    console.log(cData);
+    const selectedClasses = {
+      classId: _id,
+      class_name,
+      price,
+      img,
+      instructor,
+      available_seats,
+    };
+    if (user) {
+      axiosSecure
+        .post("/selectedClass", selectedClasses)
+        .then((res) => {
+          console.log(res.data);
+          if (res.data.insertedId) {
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Your work has been saved",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          }
+        })
+        .catch((error) => {
+          console.error("Error selecting class:", error);
+        });
+    }
+  };
 
   return (
     <div>
@@ -25,9 +59,16 @@ const ClassCard = ({ cData }) => {
           </div>
           <div className="card-actions justify-end">
             {user ? (
-              <button className="btn bg-slate-400">Select</button>
+              <button
+                onClick={() => handleSelectClass(cData)}
+                className="btn bg-slate-400"
+              >
+                Select
+              </button>
             ) : (
-              <button className="btn bg-slate-400" disabled>Select</button>
+              <button className="btn bg-slate-400" disabled>
+                Select
+              </button>
             )}
           </div>
         </div>

@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { Player } from "@lottiefiles/react-lottie-player";
 import lottieLogin from "../../assets/lottieAnimation/142230-login.json";
+import { saveUser } from "../../Api/auth";
 
 const Login = () => {
   const { googleLogin, logIn } = useContext(AuthContext);
@@ -51,6 +52,7 @@ const Login = () => {
     googleLogin()
       .then((result) => {
         const user = result.user;
+        saveUser(user)
         console.log(user);
         Swal.fire({
           position: "center",

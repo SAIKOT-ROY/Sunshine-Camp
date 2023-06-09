@@ -5,6 +5,7 @@ import { FcGoogle } from "react-icons/fc";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../Providers/AuthProviders";
 import Swal from "sweetalert2";
+import { saveUser } from "../../Api/auth";
 
 const Register = () => {
   const {
@@ -22,6 +23,7 @@ const Register = () => {
     newUser(data.email, data.password)
       .then((result) => {
         const loggedUser = result.user;
+        saveUser(loggedUser)
         console.log(loggedUser);
         Swal.fire({
           position: "center",
@@ -42,6 +44,7 @@ const Register = () => {
     googleLogin()
     .then(result => {
       const user = result.user;
+      saveUser(user);
       console.log(user);
     })
     .catch(error => console.log(error.message))
