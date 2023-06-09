@@ -21,12 +21,13 @@ const ClassCard = ({ cData }) => {
       axiosSecure
         .post("/selectedClass", selectedClasses)
         .then((res) => {
-          console.log(res.data);
-          if (res.data.insertedId) {
+          const insertId = res.data.result.insertedId
+          console.log(insertId);
+          if (insertId) {
             Swal.fire({
-              position: "top-end",
+              position: "center",
               icon: "success",
-              title: "Your work has been saved",
+              title: "Your Class is Saved",
               showConfirmButton: false,
               timer: 1500,
             });
@@ -40,7 +41,7 @@ const ClassCard = ({ cData }) => {
 
   return (
     <div>
-      <div className="card card-compact w-96 bg-base-100 shadow-xl">
+      <div className="card card-compact w-96 bg-[#E3B448] shadow-xl">
         <figure>
           <img className="w-full h-[272px]" src={cData?.img} alt="Shoes" />
         </figure>
@@ -61,7 +62,7 @@ const ClassCard = ({ cData }) => {
             {user ? (
               <button
                 onClick={() => handleSelectClass(cData)}
-                className="btn bg-slate-400"
+                className="btn btn-outline btn-success"
               >
                 Select
               </button>

@@ -40,21 +40,23 @@ const Navbar = () => {
           Classes
         </NavLink>
       </li>
-     {
-      user ?  <li>
-      <NavLink
-        className={({ isActive }) => (isActive ? "text-black" : "")}
-        to="/dashboard"
-      >
-        Dashboard
-      </NavLink>
-    </li> : " "
-     }
+      {user ? (
+        <li>
+          <NavLink
+            className={({ isActive }) => (isActive ? "text-black" : "")}
+            to="/dashboard"
+          >
+            Dashboard
+          </NavLink>
+        </li>
+      ) : (
+        " "
+      )}
     </>
   );
 
   return (
-    <div className="navbar bg-[#49c5b6] text-white font-bold font-serif">
+    <div className="navbar bg-[#E3B448] text-white font-bold font-serif">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -80,9 +82,14 @@ const Navbar = () => {
             {navLists}
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl">
-          Sunshine Summer Camp
-        </a>
+        <div className="flex md:flex-row-reverse">
+          <a className="btn btn-ghost normal-case text-xl">Sunshine Camp</a>
+          <img
+            className="w-16 rounded-full hidden md:block"
+            src="https://i.ibb.co/JHJJDcQ/1b4489130cd7ad3b88a609596e86eb9f.jpg"
+            alt=""
+          />
+        </div>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navLists}</ul>
@@ -90,7 +97,9 @@ const Navbar = () => {
       <div className="navbar-end">
         {user ? (
           <>
-            <button className="btn btn-ghost" onClick={handleLogOut}>Log Out</button>
+            <button className="btn btn-ghost" onClick={handleLogOut}>
+              Log Out
+            </button>
             <img
               className="rounded-full w-10 ml-3"
               src={user.photoURL}
@@ -99,7 +108,9 @@ const Navbar = () => {
           </>
         ) : (
           <>
-            <Link className="btn btn-ghost" to="/login">Login</Link>
+            <Link className="btn btn-ghost" to="/login">
+              Login
+            </Link>
           </>
         )}
       </div>

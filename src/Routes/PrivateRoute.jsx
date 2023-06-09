@@ -9,7 +9,7 @@ const PrivateRoute = ({ children }) => {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center">
+      <div className="flex justify-center items-center mt-80">
         <BounceLoader color="#36d7b7" size={100} />
       </div>
     );

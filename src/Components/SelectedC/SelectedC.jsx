@@ -3,19 +3,24 @@ import React from "react";
 import axiosSecure from "../../Hooks/useAxioxSecure";
 import { FiTrash2 } from "react-icons/fi";
 import { IoCard } from "react-icons/io5";
+import Swal from "sweetalert2";
 
 const SelectedC = () => {
-  const { data: classesData = [] } = useQuery(["classData"], async () => {
+  const { data: classesData = [], refetch } = useQuery(["classData"], async () => {
     const res = await axiosSecure.get("/selectedClass");
     return res?.data;
   });
 
   // Delete Function
-  const handleClassDelete = (_id) => {
-      console.log(_id)
-      axiosSecure.delete(`/selectedClass/:${_id}`)
+  const handleClassDelete = (clData) => {
+      console.log(clData)
+      axiosSecure.delete(`/selectedClass/${clData._id}`)
       .then(res => {
-        console.log(res?.data)
+        // console.log(res?.data)
+        if(res.data.deletedCount > 0){
+          refetch()
+          Swal.fire("Deleted!", "Your file has been deleted.", "success");
+        }
       })
       .catch(error => {
         console.log(error.message)
@@ -65,7 +70,7 @@ const SelectedC = () => {
                     <td>{clData?.available_seats}</td>
                     <th>
                       <button
-                       onClick={() => handleClassDelete(clData?._id)}
+                       onClick={() => handleClassDelete(clData)}
                        className="btn btn-ghost bg-red-600 text-white  btn-sm"><FiTrash2 className="w-6 h-6" /></button>
                     </th>
                     <th>
