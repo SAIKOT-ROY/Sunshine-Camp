@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../Providers/AuthProviders";
 import { useForm } from "react-hook-form";
@@ -9,6 +9,11 @@ import lottieLogin from "../../assets/lottieAnimation/142230-login.json";
 
 const Login = () => {
   const { googleLogin, logIn } = useContext(AuthContext);
+  const [errMessage, setErrMessage] = useState(" ");
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const from = location?.state?.from?.pathname || "/";
 
   const {
     register,
@@ -18,6 +23,7 @@ const Login = () => {
   } = useForm();
 
   const onSubmit = (data) => {
+    setErrMessage(" ");
     logIn(data.email, data.password)
       .then((result) => {
         const signedUser = result.user;
@@ -30,9 +36,12 @@ const Login = () => {
           showConfirmButton: false,
           timer: 1500,
         });
+        navigate(from, { replace: true });
       })
       .catch((error) => {
-        console.log(error.message);
+        const messageError = error.message.split(" ");
+        console.log(messageError);
+        setErrMessage(messageError[2]);
         reset();
       });
   };
@@ -50,8 +59,10 @@ const Login = () => {
           showConfirmButton: false,
           timer: 1500,
         });
+        navigate(from, { replace: true });
       })
       .catch((error) => console.log(error.message));
+    reset();
   };
 
   return (
@@ -108,6 +119,7 @@ const Login = () => {
             <div className="form-control my-4">
               <input className="btn btn-primary" type="submit" />
             </div>
+            <p>{errMessage}</p>
           </form>
         </div>
         <div

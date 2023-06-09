@@ -3,17 +3,17 @@ import React from "react";
 import axiosSecure from "../../Hooks/useAxioxSecure";
 
 const InstaructerProfile = () => {
-  const { data: instructorData } = useQuery(["classes"], async () => {
+  const { data: instructorData = [] } = useQuery(["classes"], async () => {
     const res = await axiosSecure.get("/classes");
-    console.log(res.data);
     return res?.data;
   });
 
 
 
   return (
-    <div className="md:overflow-x-auto my-20 border">
-      <table className="md:table table-xs">
+    <div className="md:overflow-x-auto my-20">
+      <p className="text-4xl mb-6 font-bold font-serif text-center">Instructors</p>
+      <table className="md:table table-xs border border-green-400">
         {/* head */}
         <thead className="bg-green-700">
           <tr className="text-white font-semibold text-lg">
@@ -26,7 +26,7 @@ const InstaructerProfile = () => {
         </thead>
         <tbody className="bg-slate-200 font-semibold">
           {
-            instructorData.map((iData, index) =>  <tr
+            instructorData?.map((iData, index) =>  <tr
             key={iData._id}>
                 <th>
                     {index + 1}

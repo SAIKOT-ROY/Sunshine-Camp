@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../Providers/AuthProviders";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const {
@@ -22,6 +23,13 @@ const Register = () => {
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "You Have created an Account",
+          showConfirmButton: false,
+          timer: 1500,
+        });
         reset();
       })
       .catch((err) => {
