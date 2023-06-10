@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { BsFacebook } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../Providers/AuthProviders";
@@ -15,24 +15,31 @@ const Register = () => {
     formState: { errors },
   } = useForm();
 
-  const { newUser, googleLogin } = useContext(AuthContext);
+  const { newUser, googleLogin, update } = useContext(AuthContext);
+  const navigate = useNavigate()
 
   // New User Sign In
   const onSubmit = (data) => {
+    const {email, password, name, photoUrl} = data;
     console.log(data);
-    newUser(data.email, data.password)
+    newUser(email, password)
       .then((result) => {
+        console.log(result);
         const loggedUser = result.user;
         saveUser(loggedUser)
-        console.log(loggedUser);
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "You Have created an Account",
-          showConfirmButton: false,
-          timer: 1500,
-        });
+        update(photoUrl, name)
+        .then(() => {
+          console.log(loggedUser);
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "You Have created an Account",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        })
         reset();
+        navigate('/')
       })
       .catch((err) => {
         reset();
@@ -46,6 +53,7 @@ const Register = () => {
       const user = result.user;
       saveUser(user);
       console.log(user);
+      navigate('/')
     })
     .catch(error => console.log(error.message))
   };

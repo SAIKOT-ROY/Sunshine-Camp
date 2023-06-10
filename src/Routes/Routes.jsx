@@ -11,6 +11,7 @@ import DashboardPage from "../Pages/DashboardPage/DashboardPage";
 import PrivateRoute from "./PrivateRoute";
 import SelectedC from "../Components/SelectedC/SelectedC";
 import AllUser from "../Pages/AllUser/AllUser";
+import Payments from "../Pages/Payements/Payments";
 
 
 export const router = createBrowserRouter([
@@ -47,6 +48,10 @@ export const router = createBrowserRouter([
             {
                 path:"/dashboard/select-class",
                 element: <SelectedC />
+            },
+            {
+              path: "/dashboard/payment",
+              element: <Payments />
             },
             // Admins Routes
             {

@@ -17,18 +17,17 @@ const AllUser = () => {
 
   const makeAdmin = (email) => {
     if (role !== "admin") {
-      becomeAdmin(email);
+      becomeAdmin(email, refetch);
       toast.success("You are now Admin");
     }
-    refetch()
+   
   };
 
   const makeInstructor = (email) => {
     if (role !== "instructor") {
-      becomeInstructor(email);
+      becomeInstructor(email, refetch);
       toast.success("You are now Instructor");
     }
-    refetch()
   };
 
   return (

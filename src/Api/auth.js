@@ -18,20 +18,23 @@ export const saveUser = async user => {
        
 }
 // make a user admin 
-export const becomeAdmin = async email => {
+export const becomeAdmin = async (email, refetch) => {
+            
        const currentUser = {
              role: 'admin'
        }
        const response = await axiosSecure.patch(`/users/${email}`, currentUser)
+       refetch()
        console.log(response)     
 }
 
 // make a user instructor 
-export const becomeInstructor = async email => {
+export const becomeInstructor = async (email, refetch) => {
     const currentUser = {
           role: 'instructor'
     }
     const response = await axiosSecure.patch(`/users/${email}`, currentUser)
+     refetch()
     console.log(response)     
 }
 
