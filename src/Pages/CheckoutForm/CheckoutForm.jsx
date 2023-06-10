@@ -2,11 +2,31 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React from "react";
 import "./CheckoutForm.css";
 import { useState } from "react";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProviders";
+import { useEffect } from "react";
+import axiosSecure from "../../Hooks/useAxioxSecure";
+import Swal from "sweetalert2";
 
-const CheckoutForm = () => {
+const CheckoutForm = ({clData}) => {
+  const {user} = useContext(AuthContext)
   const stripe = useStripe();
   const elements = useElements();
-  const [cardError, setCardError] = useState();
+  const [cardError, setCardError] = useState('');
+  const [clientSecret, setClientSecret] = useState('');
+
+  useEffect(() => {
+    if(clData?.price){
+        axiosSecure.post('/create-payment-intent', {price: clData?.price})
+        .then(res => {
+            // console.log(res.data.clientSecret);
+            setClientSecret(res.data.clientSecret)
+        })
+    }
+   
+  },[clData])
+
+//   console.log("kali naki", clData)
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -32,6 +52,45 @@ const CheckoutForm = () => {
       console.log("payment method", paymentMethod);
       setCardError("");
     }
+    // confirm payment
+    const {paymentIntent, error: confirmError} = await stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+            card: card,
+            billing_details:{
+                name: user?.displayName || 'unknown',
+                email: user?.email
+            },
+        },
+    })
+    if(confirmError){
+        console.log('[error]', confirmError);
+        setCardError(confirmError.message)
+    }
+    else{
+        console.log('paymentIntent',paymentIntent);
+        if(paymentIntent.status === 'succeeded'){
+            const paymentInfo = {
+                ...clData, 
+                transactionId: paymentIntent.id,
+                date: new Date()
+            }
+            axiosSecure.post('/dashboard/enrolled', paymentInfo)
+            .then(res => {
+                console.log(res.data);
+                const text = `Payment Successful, TransactionId : ${paymentIntent.id}`
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: text,
+                    showConfirmButton: false,
+                    timer: 1500,
+                  });
+            })
+            .catch(err => console.log(err))
+        }
+    }
+
+
   };
 
   return (
@@ -54,11 +113,11 @@ const CheckoutForm = () => {
           }}
         />
         <button
-          className="btn bg-green-500 font-bold font-serif btn-sm btn-success"
+          className="btn bg-green-500 font-bold btn-sm btn-success"
           type="submit"
           disabled={!stripe}
         >
-          Pay
+          Pay $<span>{clData?.price}</span>
         </button>
       </form>
       {cardError && <p className="text-red-600 font-bold ml-5 font-mono mt-3">{cardError}</p>}

@@ -77,7 +77,7 @@ const SelectedC = () => {
                   </th>
                   <th>
                     <Link
-                      to="/dashboard/payment"
+                      to={`/dashboard/payment/${clData._id}`}
                       className="btn btn-ghost bg-gray-700 text-white btn-sm"
                     >
                       <IoCard className="w-6 h-6" />

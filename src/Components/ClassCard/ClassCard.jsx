@@ -62,7 +62,7 @@ const ClassCard = ({ cData }) => {
             {user ? (
               <button
                 onClick={() => handleSelectClass(cData)}
-                className="btn btn-outline btn-success"
+                className="btn bg-black text-white btn-ghost"
               >
                 Select
               </button>

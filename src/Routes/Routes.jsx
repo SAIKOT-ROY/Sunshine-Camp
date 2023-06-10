@@ -12,6 +12,7 @@ import PrivateRoute from "./PrivateRoute";
 import SelectedC from "../Components/SelectedC/SelectedC";
 import AllUser from "../Pages/AllUser/AllUser";
 import Payments from "../Pages/Payements/Payments";
+import EnrolledClass from "../Pages/EnrolledClass/EnrolledClass";
 
 
 export const router = createBrowserRouter([
@@ -50,8 +51,13 @@ export const router = createBrowserRouter([
                 element: <SelectedC />
             },
             {
-              path: "/dashboard/payment",
-              element: <Payments />
+              path: "/dashboard/payment/:id",
+              element: <Payments />,
+              loader:({params}) => fetch(`http://localhost:5000/dashboard/payment/${params.id}`)
+            },
+            {
+              path: "/dashboard/enrolled",
+              element: <EnrolledClass />
             },
             // Admins Routes
             {

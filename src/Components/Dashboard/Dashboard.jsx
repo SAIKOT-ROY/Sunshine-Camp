@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProviders";
 
 const Dashboard = () => {
@@ -25,7 +25,7 @@ const Dashboard = () => {
           <Link className="btn" to="/dashboard/select-class">
             Selected Class
           </Link>
-          <p className="btn">Enrolled Class</p>
+          <p className="btn"><NavLink className={({ isActive,  }) =>isActive ? "text-[#E3B448]" : "" } to="/dashboard/enrolled">Enrolled Classes</NavLink></p>
           <p className="btn">Payment History</p>
         </>
       )}
