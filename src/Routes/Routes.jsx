@@ -10,6 +10,7 @@ import SelectClass from "../Pages/SelectClass/SelectClass";
 import DashboardPage from "../Pages/DashboardPage/DashboardPage";
 import PrivateRoute from "./PrivateRoute";
 import SelectedC from "../Components/SelectedC/SelectedC";
+import AllUser from "../Pages/AllUser/AllUser";
 
 
 export const router = createBrowserRouter([
@@ -42,9 +43,15 @@ export const router = createBrowserRouter([
           path: '/dashboard',
           element: <PrivateRoute><DashboardPage /></PrivateRoute>,
           children:[
+            // Users/Student Routes
             {
                 path:"/dashboard/select-class",
                 element: <SelectedC />
+            },
+            // Admins Routes
+            {
+              path: "/dashboard/allUser",
+              element: <AllUser />
             }
           ]
         }
