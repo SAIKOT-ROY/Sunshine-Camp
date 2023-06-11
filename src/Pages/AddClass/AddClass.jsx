@@ -11,16 +11,16 @@ const AddClass = () => {
 
   const onSubmit = (data) => {
   console.log(data);
-    const {className, photoUrl, email, seats, price, name} = data
+    const {className, img, email, seats, price, instructor} = data
 
     const newAddedClass = {
         className,
-        name,
-        photoUrl,
+        instructor,
+        img,
         email,
         seats,
         price,
-        role: 'pending',
+        status: 'pending',
         activeRole : 'requested'
 
     }
@@ -72,7 +72,7 @@ const AddClass = () => {
             <span className="label-text">Picture URL</span>
           </label>
           <input
-            {...register("photoUrl", { required: true })}
+            {...register("img", { required: true })}
             type="text"
             placeholder="Type here"
             className="input input-bordered w-full max-w-xs"
@@ -117,7 +117,7 @@ const AddClass = () => {
             <span className="label-text">Instructor Name</span>
           </label>
           <input
-            {...register("name", { required: true })}
+            {...register("instructor", { required: true })}
             type="text"
             value={user?.displayName}
             placeholder="Type here"

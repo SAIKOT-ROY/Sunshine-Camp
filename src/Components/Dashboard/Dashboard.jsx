@@ -42,6 +42,7 @@ const Dashboard = () => {
         <>
           <p>Instructor</p>
            <div className="btn"><Link to="/dashboard/addClass">Add a class</Link></div>
+           <div className="btn"><Link to="/dashboard/myClass">My Classes</Link></div>
         </>
       )}
     </div>

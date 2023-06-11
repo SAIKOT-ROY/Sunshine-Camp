@@ -14,6 +14,7 @@ import AllUser from "../Pages/AllUser/AllUser";
 import Payments from "../Pages/Payements/Payments";
 import EnrolledClass from "../Pages/EnrolledClass/EnrolledClass";
 import AddClass from "../Pages/AddClass/AddClass";
+import MyClass from "../Pages/MyClass/MyClass";
 
 
 
@@ -71,6 +72,10 @@ export const router = createBrowserRouter([
             {
               path: '/dashboard/addClass',
               element: <AddClass />
+            },
+            {
+              path: '/dashboard/myClass',
+              element: <MyClass />
             }
           ]
         },
