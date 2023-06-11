@@ -6,6 +6,7 @@ const Dashboard = () => {
   const { user } = useContext(AuthContext);
 
   const isAdmin = true;
+  const isInstructor = true;
 
   return (
     <div className="font-bold flex flex-col gap-5 justify-center items-center my-auto">
@@ -15,18 +16,32 @@ const Dashboard = () => {
           <Link className="btn" to="/dashboard/allUser">
             All User
           </Link>
-          <p className="btn">Enrolled Class</p>
           <p className="btn">Payment History</p>
         </>
       )}
       {user && (
         <>
           <p>User</p>
-          <Link className="btn" to="/dashboard/select-class">
-            Selected Class
-          </Link>
-          <p className="btn"><NavLink className={({ isActive,  }) =>isActive ? "text-[#E3B448]" : "" } to="/dashboard/enrolled">Enrolled Classes</NavLink></p>
+          <NavLink
+            className={({ isActive }) => (isActive ? "text-[#E3B448]" : "")}
+            to="/dashboard/select-class"
+          >
+            Selected Classes
+          </NavLink>
+
+          <NavLink
+            className={({ isActive }) => (isActive ? "text-[#E3B448]" : "")}
+            to="/dashboard/enrolled"
+          >
+            Enrolled Classes
+          </NavLink>
           <p className="btn">Payment History</p>
+        </>
+      )}
+       {isInstructor && (
+        <>
+          <p>Instructor</p>
+           <div className="btn"><Link to="/dashboard/addClass">Add a class</Link></div>
         </>
       )}
     </div>

@@ -7,6 +7,7 @@ import { AuthContext } from "../../Providers/AuthProviders";
 import { useEffect } from "react";
 import axiosSecure from "../../Hooks/useAxioxSecure";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const CheckoutForm = ({clData}) => {
   const {user} = useContext(AuthContext)
@@ -14,6 +15,7 @@ const CheckoutForm = ({clData}) => {
   const elements = useElements();
   const [cardError, setCardError] = useState('');
   const [clientSecret, setClientSecret] = useState('');
+  const navigate = useNavigate();
 
   useEffect(() => {
     if(clData?.price){
@@ -74,7 +76,7 @@ const CheckoutForm = ({clData}) => {
                 transactionId: paymentIntent.id,
                 date: new Date()
             }
-            axiosSecure.post('/dashboard/enrolled', paymentInfo)
+            axiosSecure.put(`/dashboard/enrolled/${clData._id}`, paymentInfo)
             .then(res => {
                 console.log(res.data);
                 const text = `Payment Successful, TransactionId : ${paymentIntent.id}`
@@ -85,6 +87,7 @@ const CheckoutForm = ({clData}) => {
                     showConfirmButton: false,
                     timer: 1500,
                   });
+                  navigate('/dashboard/enrolled')
             })
             .catch(err => console.log(err))
         }

@@ -13,6 +13,9 @@ import SelectedC from "../Components/SelectedC/SelectedC";
 import AllUser from "../Pages/AllUser/AllUser";
 import Payments from "../Pages/Payements/Payments";
 import EnrolledClass from "../Pages/EnrolledClass/EnrolledClass";
+import AddClass from "../Pages/AddClass/AddClass";
+
+
 
 
 export const router = createBrowserRouter([
@@ -63,9 +66,14 @@ export const router = createBrowserRouter([
             {
               path: "/dashboard/allUser",
               element: <AllUser />
+            },
+            // Instructor Routes
+            {
+              path: '/dashboard/addClass',
+              element: <AddClass />
             }
           ]
-        }
+        },
     ]
   },
 ]);
