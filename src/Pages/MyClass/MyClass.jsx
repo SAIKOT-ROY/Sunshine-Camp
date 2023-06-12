@@ -18,12 +18,14 @@ const MyClass = () => {
             <tr>
               <th>#</th>
               <th>Name</th>
+              <th>Class Name</th>
               <th>Email</th>
               <th>Job</th>
               <th>Seats Available</th>
               <th>Price</th>
               <th>feedback</th>
               <th>Status</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -37,10 +39,11 @@ const MyClass = () => {
                     alt=""
                   />
                 </th>
-                <td>{myCls.instructor}</td>
-                <td>{myCls?.email}</td>
+                <td>{myCls?.instructor}</td>
+                <td>{myCls?.class_name}</td>
+                <td>{myCls?.instructor_email}</td>
                 <td>
-                  <p>{myCls?.seats}</p>
+                  <p>{myCls?.number_of_students}</p>
                 </td>
                 <td>
                   <p>{myCls?.price}</p>
@@ -53,15 +56,17 @@ const MyClass = () => {
                 <td>
                   <div className="flex">
                     <div>
-                      <p className="btn btn-xs font-semibold shadow font-serif text-white bg-red-400">
+                      <p className="btn btn-xs font-semibold shadow font-serif text-white bg-green-500">
                         {myCls?.status}
                       </p>
                     </div>
-                    <div>
-                      <p className="btn btn-xs font-semibold shadow font-serif text-white bg-red-400">
-                        update
-                      </p>
-                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <p className="btn btn-xs font-semibold shadow font-serif text-white bg-red-400">
+                      update
+                    </p>
                   </div>
                 </td>
               </tr>

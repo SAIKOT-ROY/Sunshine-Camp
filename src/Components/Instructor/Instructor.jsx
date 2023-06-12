@@ -8,7 +8,7 @@ const Instructor = () => {
     ["instructor"],
     async () => {
       const res = await axiosSecure.get("/classes");
-      console.log(res.data);
+      // console.log(res.data);
       return res.data;
     }
   );

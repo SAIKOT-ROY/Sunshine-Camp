@@ -52,7 +52,7 @@ const Login = () => {
     googleLogin()
       .then((result) => {
         const user = result.user;
-        saveUser(user)
+        saveUser(user);
         console.log(user);
         Swal.fire({
           position: "center",
@@ -70,10 +70,6 @@ const Login = () => {
   return (
     <div className="md:flex flex-col justify-center items-center md:flex-row mt-44 md:gap-20">
       <div className="md:w-1/3">
-        {/* <img
-          src="https://i.ibb.co/yfvFmpy/Blue-Green-Cute-Illustration-Kids-Summer-Camp-Instagram-Post.png"
-          alt=""
-        /> */}
         <Player
           autoplay
           loop

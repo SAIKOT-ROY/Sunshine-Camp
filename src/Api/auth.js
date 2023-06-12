@@ -43,6 +43,41 @@ export const becomeInstructor = async (email, refetch) => {
 export const getRole = async email => {
       const response = await axiosSecure.get(`/users/${email}`)
       const user = await response.data;
-      console.log(user?.role?.role);
-      return user?.role?.role;
+      console.log(user?.role);
+      return user?.role;
+}
+
+// approve class
+export const approveClass = async (id, refetch) => {
+       const currentStatus = {
+             status: 'approve'
+       }
+       const response = await axiosSecure.patch(`/dashboard/addClass/${id}`, currentStatus)
+       refetch()
+       console.log(response)
+}
+
+export const denyClass = async (id, refetch) => {
+      const currentStatus = {
+            status: 'denied',
+      }
+      const response = await axiosSecure.patch(`/dashboard/addClass/${id}`, currentStatus)
+      refetch()
+      console.log(response)
+}
+
+// export const giveFeedBack = async (feedback, id, refetch) => {
+//        const currentFeedback = {
+//              feedback: 'feedback'
+//        }
+//        const response = await axiosSecure.patch(`/dashboard/addClass/${id}`, currentFeedback )
+//        refetch()
+//        console.log(response);
+// }
+
+// get status
+export const getStatus = async id => {
+       const res = await axiosSecure.get(`/dashboard/addClass/${id}`)
+       const statusResult = await res.data;
+       console.log(statusResult?.status?.status);
 }

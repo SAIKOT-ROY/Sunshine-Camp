@@ -3,23 +3,27 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProviders";
 
 const Dashboard = () => {
-  const { user } = useContext(AuthContext);
-
-  const isAdmin = true;
-  const isInstructor = true;
+  const { user, role } = useContext(AuthContext);
 
   return (
     <div className="font-bold flex flex-col gap-5 justify-center items-center my-auto">
-      {isAdmin && (
+      {role === 'admin' && (
         <>
           <p>Admin</p>
           <Link className="btn" to="/dashboard/allUser">
-            All User
+            Manage User
           </Link>
-          <p className="btn">Payment History</p>
+          <p className="btn">
+            <NavLink
+              className={({ isActive }) => (isActive ? "text-black" : "")}
+              to="/dashboard/manageClass"
+            >
+              Manage Classes
+            </NavLink>
+          </p>
         </>
       )}
-      {user && (
+      {role !== "admin" && role !== "instructor" && user && (
         <>
           <p>User</p>
           <NavLink
@@ -38,11 +42,15 @@ const Dashboard = () => {
           <p className="btn">Payment History</p>
         </>
       )}
-       {isInstructor && (
+      {role === 'instructor' && (
         <>
           <p>Instructor</p>
-           <div className="btn"><Link to="/dashboard/addClass">Add a class</Link></div>
-           <div className="btn"><Link to="/dashboard/myClass">My Classes</Link></div>
+          <div className="btn">
+            <Link to="/dashboard/addClass">Add a class</Link>
+          </div>
+          <div className="btn">
+            <Link to="/dashboard/myClass">My Classes</Link>
+          </div>
         </>
       )}
     </div>
