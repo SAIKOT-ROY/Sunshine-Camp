@@ -18,7 +18,7 @@ const AddClass = () => {
         instructor,
         img,
         instructor_email,
-        number_of_students,
+        number_of_students: parseFloat(number_of_students),
         price: parseFloat(price),
         status: 'pending',
         activeRole : 'requested'

@@ -16,6 +16,7 @@ import EnrolledClass from "../Pages/EnrolledClass/EnrolledClass";
 import AddClass from "../Pages/AddClass/AddClass";
 import MyClass from "../Pages/MyClass/MyClass";
 import ManageClass from "../Pages/ManageClass/ManageClass";
+import PaymentsHistory from "../Pages/PaymentsHistory/PaymentsHistory";
 
 
 
@@ -81,6 +82,10 @@ export const router = createBrowserRouter([
             {
               path: '/dashboard/manageClass',
               element: <ManageClass />
+            },
+            {
+              path: '/dashboard/payment-history',
+              element: <PaymentsHistory />
             }
           ]
         },

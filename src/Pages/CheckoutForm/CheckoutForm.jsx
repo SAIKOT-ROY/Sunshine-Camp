@@ -96,6 +96,8 @@ const CheckoutForm = ({clData}) => {
 
   };
 
+  
+
   return (
     <>
       <form onSubmit={handleSubmit}>
