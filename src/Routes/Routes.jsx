@@ -21,6 +21,7 @@ import PaymentsHistory from "../Pages/PaymentsHistory/PaymentsHistory";
 
 
 
+
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -70,6 +71,10 @@ export const router = createBrowserRouter([
               path: "/dashboard/allUser",
               element: <AllUser />
             },
+            {
+              path: '/dashboard/manageClass',
+              element: <ManageClass />
+            },
             // Instructor Routes
             {
               path: '/dashboard/addClass',
@@ -78,10 +83,6 @@ export const router = createBrowserRouter([
             {
               path: '/dashboard/myClass',
               element: <MyClass />
-            },
-            {
-              path: '/dashboard/manageClass',
-              element: <ManageClass />
             },
             {
               path: '/dashboard/payment-history',

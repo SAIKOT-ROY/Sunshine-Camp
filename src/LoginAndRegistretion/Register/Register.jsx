@@ -24,10 +24,10 @@ const Register = () => {
     console.log(data);
     newUser(email, password)
       .then((result) => {
-        console.log(result);
         const loggedUser = result.user;
+        console.log(loggedUser)
         saveUser(loggedUser)
-        update(photoUrl, name)
+        update(name, photoUrl)
         .then(() => {
           console.log(loggedUser);
           Swal.fire({

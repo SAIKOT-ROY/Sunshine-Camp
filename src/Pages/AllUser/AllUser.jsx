@@ -12,13 +12,16 @@ const AllUser = () => {
   console.log(role);
   const { data: userData = [], refetch } = useQuery(["users"], async () => {
     const res = await axiosSecure.get("/users");
+    console.log(res.data)
     return res?.data;
   });
 
   const makeAdmin = (email) => {
+    console.log("admin ki hoise..?");
     if (role !== "admin") {
       becomeAdmin(email, refetch);
-      toast.success("You are now Admin");
+      toast.success("You Have Changed a role of a user role Admin");
+      console.log('hi')
     }
    
   };
@@ -26,7 +29,7 @@ const AllUser = () => {
   const makeInstructor = (email) => {
     if (role !== "instructor") {
       becomeInstructor(email, refetch);
-      toast.success("You are now Instructor");
+      toast.success("You Have Changed a role of user to Instructor");
     }
   };
 

@@ -7,7 +7,7 @@ export const saveUser = async user => {
         const currentUser = {
             email: user.email,
             name: user.displayName,
-            userPhoto:user.photoURL
+            photoUrl:user.photoUrl
         };
         const response = await axiosSecure.put(`/users/${user.email}`, currentUser)
        console.log("user saved", response.data);
@@ -18,8 +18,7 @@ export const saveUser = async user => {
        
 }
 // make a user admin 
-export const becomeAdmin = async (email, refetch) => {
-            
+export const becomeAdmin = async (email, refetch) => {           
        const currentUser = {
              role: 'admin'
        }

@@ -7,10 +7,12 @@ import Swal from "sweetalert2";
 import { Player } from "@lottiefiles/react-lottie-player";
 import lottieLogin from "../../assets/lottieAnimation/142230-login.json";
 import { saveUser } from "../../Api/auth";
+import { AiTwotoneEye, AiTwotoneEyeInvisible } from "react-icons/ai";
 
 const Login = () => {
   const { googleLogin, logIn } = useContext(AuthContext);
   const [errMessage, setErrMessage] = useState(" ");
+  const [showPassword, setShowPassword] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -22,6 +24,10 @@ const Login = () => {
     reset,
     formState: { errors },
   } = useForm();
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   const onSubmit = (data) => {
     setErrMessage(" ");
@@ -74,7 +80,7 @@ const Login = () => {
           autoplay
           loop
           src={lottieLogin}
-          style={{ height: "500px", width: "500px" }}
+          style={{ height: "500px", width: "100%" }}
         ></Player>
       </div>
       <div className="border my-10 md:w-1/3 px-10 pb-32 pt-10 rounded-lg shadow-md  bg-gray-100">
@@ -97,17 +103,31 @@ const Login = () => {
                 This field is required
               </span>
             )}
-            {/* TODO: HAVE TO INPUT HIDE/UNHIDE FUNCTION */}
             <div className="form-control my-4">
               <label className="label">
                 <span className="text-xl font-semibold mb-2">Password</span>
               </label>
-              <input
-                {...register("password", { required: true })}
-                type="text"
-                placeholder="password"
-                className="input input-bordered"
-              />
+              <div className="flex items-center gap-2 relative">
+                <input
+                  {...register("password", { required: true })}
+                  type={showPassword ? "text" : "password"}
+                  placeholder="password"
+                  className="input input-bordered w-full"
+                />
+                <div>
+                  {showPassword ? (
+                    <AiTwotoneEyeInvisible
+                      className="w-6 mr-2 h-6 absolute top-1/2 right-3 transform -translate-y-1/2 cursor-pointer"
+                      onClick={togglePasswordVisibility}
+                    />
+                  ) : (
+                    <AiTwotoneEye
+                      className="w-6 mr-2 h-6 absolute top-1/2 right-3 transform -translate-y-1/2 cursor-pointer"
+                      onClick={togglePasswordVisibility}
+                    />
+                  )}
+                </div>
+              </div>
             </div>
             {errors.email && (
               <span className="text-red-500 font-semibold">
