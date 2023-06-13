@@ -2,10 +2,10 @@ import React from "react";
 import axiosSecure from "../../Hooks/useAxioxSecure";
 import { useQuery } from "@tanstack/react-query";
 import { approveClass, denyClass } from "../../Api/auth";
-import { useForm } from "react-hook-form";
+// import { useForm } from "react-hook-form";
 
 const ManageClass = () => {
-  const { register, handleSubmit, reset } = useForm();
+  // const { register, handleSubmit, reset } = useForm();
 
   const { data: manageClass = [], refetch: statusFetch } = useQuery(
     ["manageClass"],
@@ -16,10 +16,12 @@ const ManageClass = () => {
     }
   );
 
-  const onSubmit = (data) => {
-    const feedback = data.feedback;
-    console.log(feedback)
-    reset()
+  const handleFeedBackSubmit = (event, id) => {
+    console.log("aga", id)
+    event.preventDefault()
+    const form = event.target;
+    const feedback = form.feedback.value;
+    denyClass(id, statusFetch, feedback)
   };
 
   const givingApprove = (id, status) => {
@@ -99,17 +101,17 @@ const ManageClass = () => {
                   </button>
                   <dialog id="my_modal_2" className="modal">
                     <form
-                      onSubmit={handleSubmit(onSubmit)}
+                      onSubmit={(event)=>handleFeedBackSubmit(event, mngC?._id)}
                       method="dialog"
                       className="modal-box"
                     >
                       <h3 className="font-bold text-lg mb-2">Hello!</h3>
                       <div className="mb-4 h-10 ">
                         <input
-                          {...register("feedback", { required: true })}
                           className="border-2 border-yellow-500 w-full h-10 rounded-lg"
                           type="text"
                           id=""
+                          name="feedback"
                         />
                       </div>
                       <div className="flex justify-end">

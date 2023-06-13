@@ -56,23 +56,30 @@ export const approveClass = async (id, refetch) => {
        console.log(response)
 }
 
-export const denyClass = async (id, refetch) => {
+// export const denyClass = async (id, refetch) => {
+
+//       const currentStatus = {
+//             status: 'denied',
+//       }
+//       const response = await axiosSecure.patch(`/dashboard/addClass/${id}`, currentStatus)
+//       refetch()
+//       console.log(response)
+// }
+
+export const denyClass = async (id, refetch, feedback) => {
+      console.log(id);
+      console.log(feedback)
       const currentStatus = {
             status: 'denied',
+            feedback: feedback
       }
       const response = await axiosSecure.patch(`/dashboard/addClass/${id}`, currentStatus)
       refetch()
       console.log(response)
 }
 
-// export const giveFeedBack = async (feedback, id, refetch) => {
-//        const currentFeedback = {
-//              feedback: 'feedback'
-//        }
-//        const response = await axiosSecure.patch(`/dashboard/addClass/${id}`, currentFeedback )
-//        refetch()
-//        console.log(response);
-// }
+
+
 
 // get status
 export const getStatus = async id => {

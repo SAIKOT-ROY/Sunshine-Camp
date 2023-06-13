@@ -99,14 +99,10 @@ const Dashboard = () => {
         <>
         <div className="card w-96 bg-[#E3B448] shadow-xl mt-5">
             <figure className="px-10 pt-10">
-              <img
-                className="rounded-full"
-                src={
-                  user.photoURL && typeof user.photoURL === "string" && user.photoURL === null
-                    ? user.photoURL
-                    : "https://i.ibb.co/3cC2nVt/pngtree-businessman-avatar-cartoon-style-png-image-5234654.jpg"
-                }
-                alt=""
+            <img
+                className="rounded-full hidden md:block"
+                src={user.photoURL}
+                alt="https://i.ibb.co/3cC2nVt/pngtree-businessman-avatar-cartoon-style-png-image-5234654.jpg"
               />
             </figure>
             <div className="card-body items-center text-center">
