@@ -12,23 +12,23 @@ const Register = () => {
     register,
     handleSubmit,
     reset,
+    watch,
     formState: { errors },
   } = useForm();
 
   const { newUser, googleLogin, update } = useContext(AuthContext);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   // New User Sign In
   const onSubmit = (data) => {
-    const {email, password, name, photoUrl} = data;
+    const { email, password, name, photoUrl } = data;
     console.log(data);
     newUser(email, password)
       .then((result) => {
         const loggedUser = result.user;
-        console.log(loggedUser)
-        saveUser(loggedUser)
-        update(name, photoUrl)
-        .then(() => {
+        console.log(loggedUser);
+        saveUser(loggedUser);
+        update(name, photoUrl).then(() => {
           console.log(loggedUser);
           Swal.fire({
             position: "center",
@@ -37,9 +37,9 @@ const Register = () => {
             showConfirmButton: false,
             timer: 1500,
           });
-        })
+        });
         reset();
-        navigate('/')
+        navigate("/");
       })
       .catch((err) => {
         reset();
@@ -49,13 +49,13 @@ const Register = () => {
 
   const handleGoogleSignIn = () => {
     googleLogin()
-    .then(result => {
-      const user = result.user;
-      saveUser(user);
-      console.log(user);
-      navigate('/')
-    })
-    .catch(error => console.log(error.message))
+      .then((result) => {
+        const user = result.user;
+        saveUser(user);
+        console.log(user);
+        navigate("/");
+      })
+      .catch((error) => console.log(error.message));
   };
 
   // TODO: HAVE TO VALIDATION IN PASSWORD AND CONFIRM PASSWORD
@@ -103,17 +103,29 @@ const Register = () => {
                 <span className="text-xl font-semibold mb-2">Password</span>
               </label>
               <input
-                {...register("password", { required: true })}
+                {...register("password", {
+                  required: true,
+                  minLength: 6,
+                  pattern:
+                    /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]+$/,
+                })}
                 type="text"
                 placeholder="password"
                 className="input input-bordered"
               />
             </div>
-            {errors.password && (
-              <span className="text-red-500 font-semibold">
-                This field is required
-              </span>
-            )}
+            <span className="text-red-500 font-semibold">
+              {errors?.password && (
+                <span className="text-red-500 font-semibold">
+                  {errors?.password?.type === "required" &&
+                    "This field is required"}
+                  {errors?.password?.type === "minLength" &&
+                    "Password must be at least 6 characters long"}
+                  {errors?.password?.type === "pattern" &&
+                    "Password must contain at least one uppercase letter, one digit, and one special character"}
+                </span>
+              )}
+            </span>
             <div className="form-control my-4">
               <label className="label">
                 <span className="text-xl font-semibold mb-2">
@@ -121,15 +133,21 @@ const Register = () => {
                 </span>
               </label>
               <input
-                {...register("confirmPassword", { required: true })}
+                {...register("confirmPassword", {
+                  required: true,
+                  validate: (value) => value === watch("password"),
+                })}
                 type="text"
                 placeholder="confirm password"
                 className="input input-bordered"
               />
             </div>
-            {errors?.confirmPassword && (
+            {errors.confirmPassword && (
               <span className="text-red-500 font-semibold">
-                This field is required
+                {errors.confirmPassword.type === "required" &&
+                  "This field is required"}
+                {errors.confirmPassword.type === "validate" &&
+                  "Passwords do not match Make sure to enter same password as password field"}
               </span>
             )}
             <div className="form-control my-4">

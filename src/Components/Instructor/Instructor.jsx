@@ -2,6 +2,7 @@ import React from "react";
 import axiosSecure from "../../Hooks/useAxioxSecure";
 import TopInstructor from "../TopInstructor/TopInstructor";
 import { useQuery } from "@tanstack/react-query";
+import SectionTitle from "../SectionTitle/SectionTitle";
 
 const Instructor = () => {
   const { data: instructors, isLoading: isInstructorLoading } = useQuery(
@@ -14,7 +15,7 @@ const Instructor = () => {
   );
   return (
     <div className="mb-20">
-      <p className="text-4xl font-bold text-center my-16 font-serif">Instructor Section</p>
+      <SectionTitle heading="Instructors"></SectionTitle>
       <div className="grid md:grid-cols-3 justify-items-center md:max-w-screen-2xl mx-auto gap-10 items-center">
         {instructors?.slice(0, 6)?.map((instructor) => (
           <TopInstructor

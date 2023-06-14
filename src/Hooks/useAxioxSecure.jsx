@@ -39,3 +39,42 @@ const axiosSecure = axios.create({
 // };
 
 export default axiosSecure;
+
+// import axios from "axios";
+// import { useContext } from 'react';
+// import { AuthContext } from '../Providers/AuthProviders';
+// import { useEffect } from 'react';
+
+// const useAxioxSecure = () => {
+// //  const {token} = useContext(AuthContext)
+// const token = localStorage.getItem('access-token')
+// if(!token){
+//   return <p>Loading</p>
+// }
+//  const axiosSecure = axios.create({
+//   baseURL: `${import.meta.env.VITE_API_URL}`,
+// });
+
+//   useEffect(() => {
+//     axiosSecure.interceptors.request.use((config) => {
+//       if(token){
+//         config.headers.Authorization = `Bearer ${token}`
+//       }
+//       return config
+
+//     })
+//     axiosSecure.interceptors.response.use(
+//        (response) => response,
+//        async (error) => {
+//         if(error.response && (error.response.status === 401)){
+//           return console.log('mal da kaj kore na')
+
+//         }
+//         return Promise.reject(error);
+//        }
+//        )
+//   },[token, axiosSecure])
+//   return [axiosSecure]
+// };
+
+// export default useAxioxSecure;

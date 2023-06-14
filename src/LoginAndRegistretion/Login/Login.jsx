@@ -135,7 +135,7 @@ const Login = () => {
               </span>
             )}
             <div className="form-control my-4">
-              <input className="btn btn-primary" type="submit" />
+              <input className="btn bg-blue-500 text-white" type="submit" />
             </div>
             <p>{errMessage}</p>
           </form>

@@ -1,6 +1,10 @@
 // Note: save user to database
 
+// import useAxioxSecure from "../Hooks/useAxioxSecure";
+
 import axiosSecure from "../Hooks/useAxioxSecure"
+
+
 
 export const saveUser = async user => {
        try{
@@ -22,6 +26,7 @@ export const becomeAdmin = async (email, refetch) => {
        const currentUser = {
              role: 'admin'
        }
+       console.log(email)
        const response = await axiosSecure.patch(`/users/${email}`, currentUser)
        refetch()
        console.log(response)     

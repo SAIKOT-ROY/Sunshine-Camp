@@ -118,7 +118,7 @@ const CheckoutForm = ({clData}) => {
           }}
         />
         <button
-          className="btn bg-green-500 font-bold btn-sm btn-success"
+          className="btn bg-black text-white font-bold btn-sm btn-ghost"
           type="submit"
           disabled={!stripe}
         >

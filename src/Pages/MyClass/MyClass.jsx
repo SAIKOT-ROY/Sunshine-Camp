@@ -49,9 +49,26 @@ const MyClass = () => {
                   <p>{myCls?.price}</p>
                 </td>
                 <td>
-                  <p>
-                    {myCls?.feedback ? myCls.feedback : "No FeedBack is given"}
-                  </p>
+                  <label htmlFor="my_modal_7" className="btn btn-xs">
+                  {myCls?.feedback ? myCls.feedback : "No FeedBack is given"}
+                  </label>
+
+                  <input
+                    type="checkbox"
+                    id="my_modal_7"
+                    className="modal-toggle"
+                  />
+                  <div className="modal">
+                    <div className="modal-box">
+                      <h3 className="text-lg font-bold">Feedback!</h3>
+                      <p className="py-4">
+                      {myCls?.feedback ? myCls.feedback : "No FeedBack is given"}
+                      </p>
+                    </div>
+                    <label className="modal-backdrop" htmlFor="my_modal_7">
+                      Close
+                    </label>
+                  </div>
                 </td>
                 <td>
                   <div className="flex">

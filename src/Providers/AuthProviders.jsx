@@ -3,7 +3,10 @@ import { createContext } from 'react';
 import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import app from '../Firebase/firebase.config';
 import { getRole } from '../Api/auth';
+// import useAxioxSecure from '../Hooks/useAxioxSecure';
 import axiosSecure from '../Hooks/useAxioxSecure';
+
+
 
 
 export const AuthContext = createContext(null);
@@ -14,6 +17,11 @@ const AuthProviders = ({children}) => {
     const [loading, setLoading] = useState(true)
     const [user, setUser] = useState(null)
     const [role, setRole] = useState(null)
+    const [adminLoading, setAdminLoading] = useState(true)
+//     const [token, setToken] = useState();
+//     const [axiosSecure] = useAxioxSecure(); 
+
+
 
     const provider = new GoogleAuthProvider();
     
@@ -50,12 +58,15 @@ const AuthProviders = ({children}) => {
       getRole(user.email)
       .then(data => {
             // console.log(data)
-            setRole(data)})
+            setRole(data)
+            setAdminLoading(false)
+      })
       }
     },[user])
 
     // Google login
     const googleLogin = () => {
+            // setLoading(true)
           return signInWithPopup(auth, provider)
     }
 
@@ -95,7 +106,8 @@ const AuthProviders = ({children}) => {
         logOut,
         role,
         setRole,
-        update
+        update,
+        adminLoading,
     }
     return (
         <AuthContext.Provider value={authInfo}>

@@ -3,7 +3,7 @@ import { AuthContext } from "../Providers/AuthProviders";
 import { Navigate, useLocation } from "react-router-dom";
 import { BounceLoader } from "react-spinners";
 
-const InstructorRoute = ({ children }) => {
+const AdminRoute = ({ children }) => {
   const location = useLocation();
   const { adminLoading, loading, role, user } = useContext(AuthContext);
 
@@ -14,10 +14,10 @@ const InstructorRoute = ({ children }) => {
   }
 
 
-  if (user && role === "instructor") {
+  if (user && role === "admin") {
     return children;
   }
   return <Navigate to="/login" state={{ from: location }} replace></Navigate>;
 };
 
-export default InstructorRoute;
+export default AdminRoute;

@@ -12,16 +12,17 @@ const AllUser = () => {
   console.log(role);
   const { data: userData = [], refetch } = useQuery(["users"], async () => {
     const res = await axiosSecure.get("/users");
-    console.log(res.data)
+    // console.log(res.data)
     return res?.data;
   });
 
   const makeAdmin = (email) => {
     console.log("admin ki hoise..?");
-    if (role !== "admin") {
+    console.log(email)
+    if (role !== "instructor") {
       becomeAdmin(email, refetch);
+      console.log(email, "Email ki jasse")
       toast.success("You Have Changed a role of a user role Admin");
-      console.log('hi')
     }
    
   };

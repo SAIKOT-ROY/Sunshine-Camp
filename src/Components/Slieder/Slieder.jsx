@@ -11,72 +11,60 @@ const Slieder = () => {
         <SwiperSlide>
           <div className="flex md:max-w-full md:ml-6 relative">
             <img
-              className="h-96 max-w-fit"
-              src="https://i.ibb.co/1qHVnTD/3b4b5bb3-8458-49e0-9f8b-a893066df075.jpg"
-              alt=""
-            />
-            <img
-              className="h-96 max-w-fit"
-              src="https://i.ibb.co/DCmQHNt/Summer-Camp-for-Kids.jpg"
-              alt=""
-            />
-            <img
-              className="h-96 max-w-fit"
-              src="https://i.ibb.co/5srxmct/Summer-Camp-Offerings-Summer-2020.jpg"
+              className="md:h-[750px] w-full"
+              src="https://i.ibb.co/sCxmX4T/playdough-art-with-seal-underwater-1.jpg"
               alt=""
             />
           </div>
           <div>
-            <p className="text-5xl w-full text-white font-serif font-bold absolute top-48 md:top-52 start-[46rem] md:start-[50rem] mx-auto align-middle">
-              Life Is Enjoy
+            <p
+              className="text-5xl w-1/2 text-left text-white
+             font-serif font-bold absolute top-48 md:top-50 
+             start-[40rem] md:start-[10rem] mx-auto align-middle"
+            >
+              Sports are essential because they keep us physically fit, improve
+              our mental well-being, teach us valuable life skills, and promote
+              social connections.
             </p>
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="flex md:max-w-full md:ml-6 relative">
             <img
-              className="h-96 max-w-fit"
-              src="https://i.ibb.co/7vsqXL5/i-Stock-1070887914-scaled.jpg"
-              alt=""
-            />
-            <img
-              className="h-96 max-w-fit"
-              src="https://i.ibb.co/DCmQHNt/Summer-Camp-for-Kids.jpg"
-              alt=""
-            />
-            <img
-              className="h-96 max-w-fit"
-              src="https://i.ibb.co/PjQyjRC/download.jpg"
+              className="md:h-[750px] w-full"
+              src="https://i.ibb.co/gVwssmN/colorful-galaxy-pattern-background-illustration-cute-watercolor-style.jpg"
               alt=""
             />
           </div>
           <div>
-            <p className="text-5xl w-full text-white font-serif font-bold absolute top-48 md:top-52 start-[46rem] md:start-[50rem] mx-auto align-middle">
-              Life Is Enjoy
+            <p
+              className="text-5xl w-1/2 text-left text-blue-900
+             font-serif font-bold absolute top-48 md:top-50 
+             start-[40rem] md:start-[10rem] mx-auto align-middle"
+            >
+              Sports are vital for our well-being as they promote physical
+              health, enhance mental resilience, instill important life lessons,
+              and foster social interactions
             </p>
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="flex md:max-w-full md:ml-6 relative">
             <img
-              className="h-96 max-w-fit"
-              src="https://i.ibb.co/1qHVnTD/3b4b5bb3-8458-49e0-9f8b-a893066df075.jpg"
-              alt=""
-            />
-            <img
-              className="h-96 max-w-fit"
-              src="https://i.ibb.co/DCmQHNt/Summer-Camp-for-Kids.jpg"
-              alt=""
-            />
-            <img
-              className="h-96 max-w-fit"
-              src="https://i.ibb.co/5srxmct/Summer-Camp-Offerings-Summer-2020.jpg"
+              className="md:h-[750px] w-full"
+              src="https://i.ibb.co/NxPB4pS/space-rocket-textured-background-blue-plasticine-clay-craft-kids.jpg"
               alt=""
             />
           </div>
           <div>
-            <p className="text-5xl w-full text-white font-serif font-bold absolute top-48 md:top-52 start-[46rem] md:start-[50rem] mx-auto align-middle">
-              Life Is Enjoy
+            <p
+              className="text-5xl w-1/2 text-left text-white
+             font-serif font-bold absolute top-48 md:top-50 
+             start-[40rem] md:start-[10rem] mx-auto align-middle"
+            >
+              Sports are a necessity in our lives as they empower us
+              physically, sharpen our mental focus, cultivate valuable life
+              skills, and create lasting bonds with others.
             </p>
           </div>
         </SwiperSlide>

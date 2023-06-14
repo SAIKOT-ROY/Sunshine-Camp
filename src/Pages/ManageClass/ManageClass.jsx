@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import axiosSecure from "../../Hooks/useAxioxSecure";
 import { useQuery } from "@tanstack/react-query";
 import { approveClass, denyClass } from "../../Api/auth";
@@ -6,6 +6,7 @@ import { approveClass, denyClass } from "../../Api/auth";
 
 const ManageClass = () => {
   // const { register, handleSubmit, reset } = useForm();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const { data: manageClass = [], refetch: statusFetch } = useQuery(
     ["manageClass"],
@@ -15,6 +16,16 @@ const ManageClass = () => {
       return response.data;
     }
   );
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+
 
   const handleFeedBackSubmit = (event, id) => {
     console.log("aga", id)
@@ -94,12 +105,11 @@ const ManageClass = () => {
                   </div>
                   {/* Open the modal using ID.showModal() method */}
                   <button
-                    className="btn btn-xs"
-                    onClick={() => window.my_modal_2.showModal()}
+                    className="btn btn-xs" onClick={openModal}
                   >
                     FEEDBACK
                   </button>
-                  <dialog id="my_modal_2" className="modal">
+                  <dialog  id="my_modal_2" className="modal" open={isModalOpen}>
                     <form
                       onSubmit={(event)=>handleFeedBackSubmit(event, mngC?._id)}
                       method="dialog"
@@ -122,7 +132,7 @@ const ManageClass = () => {
                       </div>
                     </form>
                     <form method="dialog" className="modal-backdrop">
-                      <button>close</button>
+                    <button onClick={closeModal}>close</button>
                     </form>
                   </dialog>
                 </td>

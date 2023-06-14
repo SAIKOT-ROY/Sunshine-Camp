@@ -8,7 +8,13 @@ const DashboardPage = () => {
       <div className=" bg-slate-50 text-white w-1/4 flex-1">
         <Dashboard />
       </div>
-      <div className="md:w-3/4 bg-slate-300 p-5">
+      <div
+        className="md:w-3/4 bg-slate-300 p-5"
+        style={{
+          backgroundImage:
+            'url("https://i.ibb.co/RvFKKNy/images.jpg")',
+        }}
+      >
         <Outlet />
       </div>
     </div>

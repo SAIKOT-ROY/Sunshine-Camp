@@ -1,11 +1,18 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
-import axiosSecure from "../../Hooks/useAxioxSecure";
 import Swal from "sweetalert2";
+import axiosSecure from "../../Hooks/useAxioxSecure";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+// import useAxioxSecure from "../../Hooks/useAxioxSecure";
+
 
 const ClassCard = ({ cData }) => {
   const { user } = useContext(AuthContext);
   const { class_name, price, available_seats, img, instructor, _id } = cData;
+  // const [axiosSecure] = useAxioxSecure()
+
+  const notify = () => toast.error("Login To Select Class");
 
   const handleSelectClass = (cData) => {
     console.log(cData);
@@ -87,12 +94,13 @@ const ClassCard = ({ cData }) => {
                 Select
               </button>
             ) : (
-              <button className="btn bg-slate-400" disabled>
+              <button onClick={notify} className="btn bg-slate-400">
                 Select
               </button>
             )}
           </div>
         </div>
+      <ToastContainer />
       </div>
     </div>
   );
