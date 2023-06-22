@@ -6,7 +6,7 @@ import ExtraSection from '../ExtraSection/ExtraSection';
 
 const Home = () => {
     return (
-        <div className='bg-slate-200'>
+        <div>
             <Slieder />      
             <TopClass />
             <Instructor />
