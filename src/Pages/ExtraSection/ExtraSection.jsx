@@ -3,7 +3,7 @@ import React from "react";
 
 const ExtraSection = () => {
   return (
-    <div className="md:flex justify-center items-center max-w-6xl mx-auto shadow-lg rounded-lg pb-16">
+    <div className="md:flex justify-center items-center max-w-6xl mx-auto shadow-lg rounded-lg">
       <div>
         <img src="https://i.ibb.co/gZGVF1R/30138134-4089.jpg" alt="" />
       </div>

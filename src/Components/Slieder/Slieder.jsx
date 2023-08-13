@@ -6,70 +6,37 @@ import "swiper/css/pagination";
 
 const Slieder = () => {
   return (
-    <>
+    <div className="border-slate-400">
       <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
         <SwiperSlide>
-          <div className="flex md:max-w-full md:ml-6 relative">
+          <div className="flex md:max-w-full relative">
             <img
-              className="md:h-[750px] w-full"
-              src="https://i.ibb.co/sCxmX4T/playdough-art-with-seal-underwater-1.jpg"
+              className="w-full"
+              src="https://i.ibb.co/QNNpSC9/sssfsaf.png"
               alt=""
             />
-          </div>
-          <div>
-            <p
-              className="text-5xl w-1/2 text-left text-white
-             font-serif font-bold absolute top-48 md:top-50 
-             start-[40rem] md:start-[10rem] mx-auto align-middle"
-            >
-              Sports are essential because they keep us physically fit, improve
-              our mental well-being, teach us valuable life skills, and promote
-              social connections.
-            </p>
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="flex md:max-w-full md:ml-6 relative">
+          <div className="flex md:max-w-full relative">
             <img
-              className="md:h-[750px] w-full"
-              src="https://i.ibb.co/gVwssmN/colorful-galaxy-pattern-background-illustration-cute-watercolor-style.jpg"
+              className="w-full"
+              src="https://i.ibb.co/G58dCqt/27829606-7365891.jpg"
               alt=""
             />
-          </div>
-          <div>
-            <p
-              className="text-5xl w-1/2 text-left text-blue-900
-             font-serif font-bold absolute top-48 md:top-50 
-             start-[40rem] md:start-[10rem] mx-auto align-middle"
-            >
-              Sports are vital for our well-being as they promote physical
-              health, enhance mental resilience, instill important life lessons,
-              and foster social interactions
-            </p>
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="flex md:max-w-full md:ml-6 relative">
+          <div className="flex md:max-w-full relative">
             <img
-              className="md:h-[750px] w-full"
-              src="https://i.ibb.co/NxPB4pS/space-rocket-textured-background-blue-plasticine-clay-craft-kids.jpg"
+              className="w-full"
+              src="https://i.ibb.co/HGYmFg9/25811648-7144018.jpg"
               alt=""
             />
-          </div>
-          <div>
-            <p
-              className="text-5xl w-1/2 text-left text-white
-             font-serif font-bold absolute top-48 md:top-50 
-             start-[40rem] md:start-[10rem] mx-auto align-middle"
-            >
-              Sports are a necessity in our lives as they empower us
-              physically, sharpen our mental focus, cultivate valuable life
-              skills, and create lasting bonds with others.
-            </p>
           </div>
         </SwiperSlide>
       </Swiper>
-    </>
+    </div>
   );
 };
 

@@ -2,16 +2,16 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="footer footer-center p-10 text-white bg-[#E3B448] text-primary-content">
+    <footer className="footer border-black footer-center p-10 bg-slate-100">
       <div>
         <img
-          className="w-36 rounded-full"
-          src="https://i.ibb.co/JHJJDcQ/1b4489130cd7ad3b88a609596e86eb9f.jpg"
+          className="w-36"
+          src="https://i.ibb.co/DgMNmSZ/bonfire-6249625-1.png"
           alt=""
         />
         <p className="font-bold">
           Sunshine Camp <br />
-          Providing reliable tech since 1992
+          We are renowned camp since 1992
         </p>
         <p>Copyright © 2023 - All right reserved</p>
       </div>

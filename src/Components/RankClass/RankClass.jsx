@@ -12,7 +12,7 @@ const RankClass = ({ cl }) => {
       whileInView={{ opacity: 2 }}
       viewport={{ once: true }}
     >
-      <div className="card w-96 bg-slate-200 shadow-xl">
+      <div className="card w-96 shadow-xl border border-[#3c688d]">
         <div>
           <img className="rounded-xl" src={cl?.img} alt="Shoes" />
         </div>

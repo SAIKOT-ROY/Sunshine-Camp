@@ -9,7 +9,7 @@ const Dashboard = () => {
     <div className="font-bold flex flex-col gap-5 justify-center items-center my-auto">
       {role === "admin" && (
         <>
-          <div className="card md:w-96 bg-[#E3B448] shadow-xl mt-5">
+          <div className="card md:w-96 bg-[#3c688d] shadow-xl mt-5">
             <figure className="px-10 pt-10">
               <img
                 className="rounded-full hidden md:block"
@@ -51,7 +51,7 @@ const Dashboard = () => {
       )}
       {role !== "admin" && role !== "instructor" && user && (
         <>
-          <div className="card w-96 bg-[#E3B448] shadow-xl mt-5">
+          <div className="card w-96 bg-[#3c688d] shadow-xl mt-5">
             <figure className="px-10 pt-10">
               <img
                 className="rounded-full"
@@ -106,7 +106,7 @@ const Dashboard = () => {
       )}
       {role === "instructor" && (
         <>
-          <div className="card w-96 bg-[#E3B448] shadow-xl mt-5">
+          <div className="card w-96 bg-[#3c688d] shadow-xl mt-5">
             <figure className="px-10 pt-10">
               <img
                 className="rounded-full hidden md:block"
@@ -116,10 +116,10 @@ const Dashboard = () => {
             </figure>
             <div className="card-body items-center text-center">
               <div className="border-b">
-                <p className="text-black">
+                <p className="text-slate-200">
                   {user.displayName ? user?.displayName : user?.name}
                 </p>
-                <p className="text-black">Role : {role ? role : "Student"}</p>
+                <p className="text-slate-200">Role : {role ? role : "Student"}</p>
               </div>
               <div className="card-actions">
                 <div className="flex flex-col gap-2">

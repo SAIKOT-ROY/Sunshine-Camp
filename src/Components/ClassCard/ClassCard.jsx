@@ -2,10 +2,9 @@ import React, { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
 import Swal from "sweetalert2";
 import axiosSecure from "../../Hooks/useAxioxSecure";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 // import useAxioxSecure from "../../Hooks/useAxioxSecure";
-
 
 const ClassCard = ({ cData }) => {
   const { user } = useContext(AuthContext);
@@ -51,12 +50,12 @@ const ClassCard = ({ cData }) => {
           }
         })
         .catch((error) => {
-          const {errorMessage} = error.message
-          console.error("Error selecting class:",errorMessage);
+          const { errorMessage } = error.message;
+          console.error("Error selecting class:", errorMessage);
           Swal.fire({
             icon: "error",
             title: "Oops",
-            text: {errorMessage},
+            text: { errorMessage },
           });
         });
     }
@@ -65,23 +64,23 @@ const ClassCard = ({ cData }) => {
   return (
     <div>
       <div
-        className={`card card-compact w-96 ${
-          available_seats === 0 ? "bg-red-500" : "bg-[#E3B448]"
+        className={`card card-compact w-96 border-2 border-[#3c688d] ${
+          available_seats === 0 ? "bg-red-500" : "bg-[#3c688d]"
         } shadow-xl`}
       >
         <figure>
           <img className="w-full h-[272px]" src={cData?.img} alt="Shoes" />
         </figure>
         <div className="card-body flex flex-row justify-between">
-          <div>
+          <div className="text-slate-200 font-sans">
             <h2 className="card-title">{cData?.class_name}</h2>
-            <p>
+            <p className="font-semibold text-lg">
               Instructor : <span>{cData?.instructor}</span>
             </p>
-            <p>
+            <p className="font-semibold text-lg">
               Available Seats : <span>{cData?.available_seats}</span>
             </p>
-            <p>
+            <p className="font-semibold text-lg">
               Price : <span>{cData?.price}</span>
             </p>
           </div>
@@ -89,18 +88,18 @@ const ClassCard = ({ cData }) => {
             {user ? (
               <button
                 onClick={() => handleSelectClass(cData)}
-                className="btn bg-black text-white btn-ghost"
+                className="btn bg-slate-800 text-white btn-ghost"
               >
                 Select
               </button>
             ) : (
-              <button onClick={notify} className="btn bg-slate-400">
+              <button onClick={notify} className="btn font-bold bg-white">
                 Select
               </button>
             )}
           </div>
         </div>
-      <ToastContainer />
+        <ToastContainer />
       </div>
     </div>
   );

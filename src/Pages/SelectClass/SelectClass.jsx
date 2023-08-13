@@ -21,6 +21,7 @@ const SelectClass = () => {
   return (
     <>
       <SectionTitle heading="Booked Class"></SectionTitle>
+      <p className="font-semibold text-center">Please Select Classes That you Like</p>
       <div>
         <div>
           <Anime

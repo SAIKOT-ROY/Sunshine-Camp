@@ -11,11 +11,11 @@ const InstaructerProfile = () => {
 
   return (
     <>
-        <SectionTitle heading="Instructors"></SectionTitle>
-      <div className="md:overflow-x-auto my-20">
+      <SectionTitle heading="Instructors"></SectionTitle>
+      <div className="md:overflow-x-auto mb-20">
         <div className="overflow-x-auto">
-          <table className="w-full md:table table-compact table-xs border border-green-400">
-            <thead className="bg-green-700">
+          <table className="w-full md:table table-compact table-xs border border-[#3c688d]">
+            <thead className="bg-[#3c688d]">
               <tr className="text-white font-semibold text-lg">
                 <th>#</th>
                 <th>Name</th>
@@ -47,7 +47,7 @@ const InstaructerProfile = () => {
                   <td>{iData?.instructor_email}</td>
                   <td>{iData.class_name}</td>
                   <th>
-                    <button className="btn btn-ghost shadow-md bg-green-500 text-white btn-xs">
+                    <button className="btn btn-ghost shadow-md bg-[#3c688d] text-white btn-xs">
                       details
                     </button>
                   </th>
