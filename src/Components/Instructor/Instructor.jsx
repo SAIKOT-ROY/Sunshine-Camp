@@ -15,7 +15,9 @@ const Instructor = () => {
   );
   return (
     <div className="mb-20">
+      <div className="mb-8">
       <SectionTitle heading="Instructors"></SectionTitle>
+      </div>
       <div className="grid md:grid-cols-3 justify-items-center md:max-w-screen-2xl mx-auto gap-10 items-center">
         {instructors?.slice(0, 6)?.map((instructor) => (
           <TopInstructor

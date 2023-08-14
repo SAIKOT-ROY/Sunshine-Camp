@@ -149,7 +149,7 @@ const Login = () => {
         </div>
         <p className="font-medium text-center">
           Are you new Here ?
-          <Link className="text-blue-700" to="/register">
+           <Link className="text-blue-700 ml-1 font-bold" to="/register">
             Register
           </Link>
         </p>

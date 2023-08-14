@@ -44,7 +44,7 @@ const InstaructerProfile = () => {
                       </div>
                     </div>
                   </td>
-                  <td>{iData?.instructor_email}</td>
+                  <td className="hidden md:block">{iData?.instructor_email}</td>
                   <td>{iData.class_name}</td>
                   <th>
                     <button className="btn btn-ghost shadow-md bg-[#3c688d] text-white btn-xs">

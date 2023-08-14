@@ -6,6 +6,8 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../../Providers/AuthProviders";
 import Swal from "sweetalert2";
 import { saveUser } from "../../Api/auth";
+import { Player } from "@lottiefiles/react-lottie-player";
+import lottieReg from "../../assets/lottieAnimation/142230-login.json"
 
 const Register = () => {
   const {
@@ -61,8 +63,16 @@ const Register = () => {
   // TODO: HAVE TO VALIDATION IN PASSWORD AND CONFIRM PASSWORD
 
   return (
-    <div className="md:flex justify-center mt-40">
-      <div className="border md:w-1/3 px-10 pb-32 pt-10 rounded-lg shadow-md my-auto bg-gray-100">
+    <div className="flex md:flex-row flex-col-reverse justify-center gap-44 items-center mt-20 mb-40">
+      <div className="md:w-1/3">
+      <Player
+          autoplay
+          loop
+          src={lottieReg}
+          style={{ height: "500px", width: "100%" }}
+        ></Player>
+      </div>
+      <div className="border md:w-1/3 w-full px-10 pb-32 pt-10 rounded-lg shadow-md my-auto bg-gray-100">
         <p className="text-3xl font-bold text-center text-blue-500">Register</p>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div>
@@ -183,7 +193,7 @@ const Register = () => {
         {/* TODO: IF Have extra time implement facebook authentication */}
         <p className="font-medium text-center">
           Already Have an Account ?
-          <Link className="text-blue-700" to="/login">
+          <Link className="text-blue-700 font-bold ml-1" to="/login">
             Login
           </Link>
         </p>

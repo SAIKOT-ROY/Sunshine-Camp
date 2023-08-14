@@ -3,12 +3,12 @@ import React from "react";
 const Curve = () => {
   return (
     <div className="w-full text-black md:w-[1900px]">
-      <div className="relative w-4/5 mx-auto top-[24rem] md:top-[35rem]">
+      <div className="relative flex justify-center items-center md:w-4/5 mx-auto top-[24rem] md:top-[35rem]">
        <div className="flex md:w-3/4 justify-between mx-auto">
-       <p className="font-bold w-1/4 md:text-3xl">
-          With The Right Decision <br /> Great things Can happen
+       <p className="font-bold md:w-1/4 text-xs md:text-3xl">
+          With The Right Decision Great things Can happen
         </p>
-        <p className="font-serif font-medium md:text-xl text-sm w-1/2">
+        <p className="font-serif font-medium md:text-xl text-xs md:w-1/2">
           At our Sunshine Camp, we believe that learning should be a lifelong
           journey. Whether you are a working professional seeking to upskill, a
           student eager to explore new subjects, or an individual passionate
