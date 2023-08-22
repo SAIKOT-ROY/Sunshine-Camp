@@ -12,7 +12,7 @@ const DashboardPage = () => {
         <Dashboard />
       </div>
       {location.pathname == "/dashboard" ? (
-        <div className="md:w-3/4 bg-slate-300 p-5">
+        <div className="md:w-3/4 bg-slate-300 min-h-screen p-5">
           <MainDash />
         </div>
       ) : (

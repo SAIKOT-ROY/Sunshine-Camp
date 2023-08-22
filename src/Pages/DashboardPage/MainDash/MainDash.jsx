@@ -4,7 +4,7 @@ import { AiOutlineArrowLeft } from "react-icons/ai";
 
 const MainDash = () => {
   return (
-    <div className="font-bold flex-col gap-3 text-4xl flex justify-center items-center mt-96">
+    <div className="font-bold flex-col gap-3 text-4xl flex justify-center items-center mt-20 md:mt-60">
       <div className="text-center mb-3">
         <h2>CLICK OPTIONS</h2>
         <h2>TO</h2>
