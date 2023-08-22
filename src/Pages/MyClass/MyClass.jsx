@@ -11,21 +11,20 @@ const MyClass = () => {
 
   return (
     <div>
-      <h2 className="text-center font-bold text-4xl mb-5">My class</h2>
+      <h2 className="text-center font-bold text-4xl mb-5">My Class</h2>
       <div className="overflow-x-auto bg-white rounded-lg">
         <table className="table">
           <thead>
             <tr>
               <th>#</th>
-              <th>Name</th>
+              <th>Image</th>
+              <th>Instructor</th>
               <th>Class Name</th>
               <th>Email</th>
-              <th>Job</th>
-              <th>Seats Available</th>
+              <th className="text-left">Available Seats</th>
               <th>Price</th>
-              <th>feedback</th>
-              <th>Status</th>
-              <th>Action</th>
+              <th className="text-center">feedback</th>
+              <th className="text-center">Status</th>
             </tr>
           </thead>
           <tbody>
@@ -43,7 +42,7 @@ const MyClass = () => {
                 <td>{myCls?.class_name}</td>
                 <td>{myCls?.instructor_email}</td>
                 <td>
-                  <p>{myCls?.number_of_students}</p>
+                  <p>{myCls?.available_seats}</p>
                 </td>
                 <td>
                   <p>{myCls?.price}</p>

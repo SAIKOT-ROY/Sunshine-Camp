@@ -54,14 +54,12 @@ const AddClass = () => {
 
   return (
     <div>
-      <h2 className="text-center mb-5 font-bold text-4xl">
-        This is Add a Class
-      </h2>
-      <div className="bg-white mx-auto md:w-1/4 font-bold p-10 rounded-lg">
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-        >
-          <div className="form-control w-full max-w-xs">
+      <div className="bg-[#fffefe] shadow-md mx-auto md:w-1/2 font-bold p-10 rounded-lg">
+        <h2 className="text-center mb-5 font-bold font-serif text-4xl">
+          Add Classes
+        </h2>
+        <form className="flex flex-col justify-center items-center" onSubmit={handleSubmit(onSubmit)}>
+          <div className="form-control w-full md:w-[400px]">
             <label className="label">
               <span className="label-text">Class Name</span>
             </label>
@@ -69,10 +67,10 @@ const AddClass = () => {
               {...register("class_name", { required: true })}
               type="text"
               placeholder="Type here"
-              className="input input-bordered w-full max-w-xs"
+              className="input input-bordered w-full md:w-[400px]"
             />
           </div>
-          <div className="form-control w-full max-w-xs">
+          <div className="form-control w-full md:w-[400px]">
             <label className="label">
               <span className="label-text">Picture URL</span>
             </label>
@@ -80,10 +78,10 @@ const AddClass = () => {
               {...register("img", { required: true })}
               type="text"
               placeholder="Type here"
-              className="input input-bordered w-full max-w-xs"
+              className="input input-bordered w-full md:w-[400px]"
             />
           </div>
-          <div className="form-control w-full max-w-xs">
+          <div className="form-control w-full md:w-[400px]">
             <label className="label">
               <span className="label-text">Instructor Email</span>
             </label>
@@ -92,10 +90,10 @@ const AddClass = () => {
               type="text"
               value={user.email}
               placeholder="Type here"
-              className="input input-bordered w-full max-w-xs"
+              className="input input-bordered w-full md:w-[400px]"
             />
           </div>
-          <div className="form-control w-full max-w-xs">
+          <div className="form-control w-full md:w-[400px]">
             <label className="label">
               <span className="label-text">Seats</span>
             </label>
@@ -103,10 +101,10 @@ const AddClass = () => {
               {...register("number_of_students", { required: true })}
               type="text"
               placeholder="Type here"
-              className="input input-bordered w-full max-w-xs"
+              className="input input-bordered w-full md:w-[400px]"
             />
           </div>
-          <div className="form-control w-full max-w-xs">
+          <div className="form-control w-full md:w-[400px]">
             <label className="label">
               <span className="label-text">Price</span>
             </label>
@@ -114,10 +112,10 @@ const AddClass = () => {
               {...register("price", { required: true })}
               type="text"
               placeholder="Type here"
-              className="input input-bordered w-full max-w-xs"
+              className="input input-bordered w-full md:w-[400px]"
             />
           </div>
-          <div className="form-control w-full max-w-xs">
+          <div className="form-control w-full md:w-[400px]">
             <label className="label">
               <span className="label-text">Instructor Name</span>
             </label>
@@ -126,7 +124,7 @@ const AddClass = () => {
               type="text"
               value={user?.displayName}
               placeholder="Type here"
-              className="input input-bordered w-full max-w-xs"
+              className="input input-bordered w-full md:w-[400px]"
             />
           </div>
           <div className="text-center mt-5">

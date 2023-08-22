@@ -64,24 +64,24 @@ const ClassCard = ({ cData }) => {
   return (
     <div>
       <div
-        className={`card card-compact w-96 border-2 border-[#3c688d] ${
-          available_seats === 0 ? "bg-red-500" : "bg-[#3c688d]"
+        className={`text-xl card card-compact w-96 border-2 border-[#3c688d] ${
+          available_seats === 0 ? "bg-red-500" : "bg-zinc-50"
         } shadow-xl`}
       >
         <figure>
           <img className="w-full h-[272px]" src={cData?.img} alt="Shoes" />
         </figure>
         <div className="card-body flex flex-row justify-between">
-          <div className="text-slate-200 font-sans">
-            <h2 className="card-title">{cData?.class_name}</h2>
-            <p className="font-semibold text-lg">
-              Instructor : <span>{cData?.instructor}</span>
+          <div className="font-sans">
+            <h2 className="gap-2 flex items-center"><img className="w-6" src="https://i.ibb.co/MC6M9Zd/whiteboard-4540258.png" alt="" />{cData?.class_name}</h2>
+            <p className="font-semibold gap-2 flex items-center">
+             <img className="w-5" src="https://i.ibb.co/1GR7LpX/coach-517920.png" alt="" /> Instructor : <span>{cData?.instructor}</span>
             </p>
-            <p className="font-semibold text-lg">
-              Available Seats : <span>{cData?.available_seats}</span>
+            <p className="font-semibold flex gap-2 items-center">
+             <img className="w-5" src="https://i.ibb.co/0hKk4nh/distance-6446417.png" alt="" /> Available Seats : <span>{cData?.available_seats}</span>
             </p>
-            <p className="font-semibold text-lg">
-              Price : <span>{cData?.price}</span>
+            <p className="font-semibold flex gap-2 items-center">
+            <img className="w-5" src="https://i.ibb.co/fdPrNnS/money-7304865.png" alt="" />  Price : <span>{cData?.price}</span>
             </p>
           </div>
           <div className="card-actions justify-end">
