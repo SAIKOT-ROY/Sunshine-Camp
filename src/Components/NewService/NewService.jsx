@@ -7,6 +7,8 @@ import support from "../../assets/solidarity_4411215 1.svg";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 const NewService = () => {
+  const ref = useRef(null);
+
   const serviceData = [
     {
       title: "Guided Curriculum",
@@ -33,24 +35,15 @@ const NewService = () => {
         "Comprehensive support services to ensure students thrive academically and personally.",
     },
   ];
-
-  // const { ref, inView} = useInView({
-  //   triggerOnce: true,
-  //   threshold: 1.0,
-  // });
-
-  const ref = useRef(null);
-  // const isInView = useInView({
-  //   target: ref,
-  //   triggerOnce: true
-  // })
+ 
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["0 1", "1.60 1"],
+    offset: ["0 1", "1 1"],
   });
 
-  const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.3, 1]);
-  const opacityProgress = useTransform(scrollYProgress, [0, 0.5], [0.2, 1]);
+  const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.4, 1]);
+  const opacityProgress = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
+  
 
   return (
     <div>
@@ -61,10 +54,6 @@ const NewService = () => {
         {serviceData.map((data, index) => (
           <motion.div
             ref={ref}
-            // initial={{ y: 50, opacity: 0 }}
-            // whileHover={{ scale: 1.1 }}
-            // animate={!isInView ? { y: 50, opacity: 0 }: { y: 0, opacity: 1 }}
-            // transition={{ duration: 0.4 }}
             style={{
               scale: scaleProgress,
               opacity: opacityProgress,

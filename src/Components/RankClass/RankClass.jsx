@@ -1,31 +1,35 @@
-import React from "react";
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
+import stud from "../../assets/group-males_43666 1.svg";
+import perks from "../../assets/premium-service_4375265 1.svg";
 
 const RankClass = ({ cl }) => {
   return (
-    <motion.div
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 1.1 }}
-      drag="x"
-      dragConstraints={{ left: -100, right: 100 }}
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-    >
-      <div className="card w-96 shadow-xl border-2 font-serif border-[#3c688d] bg-gray-50">
+    <motion.div>
+      <div className="flex md:w-[28vw] group md:h-[30vh] font-space-grotesk rounded bg-gray-200/25
+      rounded-s-lg">
         <div>
-          <img className="rounded-xl" src={cl?.img} alt="Shoes" />
+          <img
+            className="h-[30vh] ease-linear duration-200 transition-all  group-hover:scale-105 group-hover:w-[14vw] md:w-[13vw] rounded-s-lg object-cover bg-center"
+            src={cl?.img}
+            alt="Shoes"
+          />
         </div>
-        <div className="card-body">
-          <p className="flex items-center gap-2">
-           <img className="w-5" src="https://i.ibb.co/MC6M9Zd/whiteboard-4540258.png" alt="" /> Class Name :<span>{cl?.class_name}</span>
+        <div className="pl-7 pt-8">
+          <p className="font-bold text-[1.6vw]">{cl?.class_name}</p>
+          <p className="flex items-center gap-1 font-bold">
+            <img className="w-5" src={perks} alt="" />
+            Perks
           </p>
-          <p className="flex items-center gap-2">
-           <img className="w-5" src="https://i.ibb.co/wCbBFSb/pupil-5402890.png" alt="" /> Students : <span>{cl?.number_of_students}</span>
-          </p>
-          <p className="flex items-center gap-2">
-           <img className="w-5" src="https://i.ibb.co/fdPrNnS/money-7304865.png" alt="" /> Price : <span>{cl?.price}</span>
-          </p>
+          <p className="line-clamp-3 leading-tight w-[10vw] text-sm font-bold pt-6">{cl?.description}</p>
+          <div className="flex gap-4 pt-7">
+            <p className="flex items-center gap-1 font-bold">
+              <img className="w-5" src={stud} alt="" />
+              Enrolled: <span>{cl?.number_of_students}</span>
+            </p>
+            <p className="text-white p-3 font-semibold bg-black group-hover:p-2 group-hover:text-sm group-hover:w-[5vw] ease-in-out duration-200 translate-x-1 group-hover:rounded-xl w-[6vw]">
+              Price : <span>{cl?.price}$</span>
+            </p>
+          </div>
         </div>
       </div>
     </motion.div>

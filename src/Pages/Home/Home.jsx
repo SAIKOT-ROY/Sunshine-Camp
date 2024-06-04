@@ -1,5 +1,5 @@
 import TopClass from "../../Components/TopClass/TopClass";
-import Instructor from "../../Components/Instructor/Instructor";
+// import Instructor from "../../Components/Instructor/Instructor";
 // import ExtraSection from "../ExtraSection/ExtraSection";
 // import LittleSlide from "../../Components/LittleSlide/LittleSlide";
 import Accordin from "../../Components/Accordin/Accordin";
@@ -20,7 +20,7 @@ const Home = () => {
           <NewService />
           {/* <Banner /> */}
           {/* <ContactUs /> */}
-          <Instructor />
+          {/* <Instructor /> */}
           <TopClass />
           {/* <LittleSlide /> */}
           <Accordin />
