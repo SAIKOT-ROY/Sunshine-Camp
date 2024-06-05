@@ -32,7 +32,7 @@ const SelectClass = () => {
             delay={(el, index) => index * 200}
           ></Anime>
         </div>
-        <div className="grid md:grid-cols-3 mx-auto mb-24 mt-10 gap-y-16 w-3/4">
+        <div className="grid grid-cols-2 gap-4 mx-auto mb-24 mt-10 max-w-screen-2xl">
           {classesData?.map((cData) => (
             <ClassCard key={cData?._id} cData={cData}></ClassCard>
           ))}

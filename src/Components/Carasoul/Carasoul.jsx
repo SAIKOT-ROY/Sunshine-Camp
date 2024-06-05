@@ -116,7 +116,7 @@ const Carasoul = () => {
         {slides.map((slide, slideIndex) => (
           <div
             onClick={() => goSlide(slideIndex)}
-            className="text-2xl cursor-pointer"
+            className="text-2xl cursor-pointer text-blue-400/35 hover:text-blue-600/85"
             key={slideIndex}
           >
             <RxDotFilled />

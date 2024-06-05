@@ -33,6 +33,10 @@ const NextNav = () => {
       title: "Programs",
       path: "/classes",
     },
+    {
+      title: "Dashboard",
+      path: "/dashboard"
+    }
   ];
 
   const handleMenu = contextSafe(() => {

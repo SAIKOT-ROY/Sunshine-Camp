@@ -9,7 +9,7 @@ const RankClass = ({ cl }) => {
       rounded-s-lg">
         <div>
           <img
-            className="h-[30vh] ease-linear duration-200 transition-all  group-hover:scale-105 group-hover:w-[14vw] md:w-[13vw] rounded-s-lg object-cover bg-center"
+            className="h-[30vh] ease-linear duration-200 transition-all  group-hover:scale-105 group-hover:w-[13.5vw] md:w-[13vw] rounded-s-lg object-cover bg-center"
             src={cl?.img}
             alt="Shoes"
           />
