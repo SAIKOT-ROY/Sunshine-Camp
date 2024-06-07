@@ -4,7 +4,7 @@ import TopInstructor from "../TopInstructor/TopInstructor";
 import { useQuery } from "@tanstack/react-query";
 
 const Instructor = () => {
-  const { data: instructors, isLoading: isInstructorLoading } = useQuery(
+  const { data: instructors, isLoading } = useQuery(
     ["instructor"],
     async () => {
       const res = await axiosSecure.get("/classes");
@@ -22,7 +22,7 @@ const Instructor = () => {
           <TopInstructor
             key={instructor?._id}
             instructor={instructor}
-            isInstructorLoading={isInstructorLoading}
+            isInstructorLoading={isLoading}
           ></TopInstructor>
         ))}
       </div>

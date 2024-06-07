@@ -1,9 +1,9 @@
 import { FaStar } from "react-icons/fa";
 
-const TopInstructor = ({ instructor, isInstructorLoading }) => {
+const TopInstructor = ({ instructor, isInstructorLoading}) => {
 
 
-  if (isInstructorLoading) {
+  if (!isInstructorLoading) {
     <div className="max-w-sm w-full mx-auto">
       <div className="border border-gray-200 shadow p-4 w-full mx-auto">
         <div className="animate-pulse flex space-x-4">
