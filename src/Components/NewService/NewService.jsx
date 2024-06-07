@@ -1,14 +1,9 @@
-import { useRef } from "react";
 import guide from "../../assets/guide-book_6683484 1.svg";
 import facilities from "../../assets/research-center_4084707 1.svg";
 import teach from "../../assets/skills_11362261 1.svg";
 import support from "../../assets/solidarity_4411215 1.svg";
-// import { motion, useInView, useScroll } from "framer-motion";
-import { motion, useScroll, useTransform } from "framer-motion";
 
 const NewService = () => {
-  const ref = useRef(null);
-
   const serviceData = [
     {
       title: "Guided Curriculum",
@@ -35,31 +30,18 @@ const NewService = () => {
         "Comprehensive support services to ensure students thrive academically and personally.",
     },
   ];
- 
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["0 1", "1 1"],
-  });
-
-  const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.4, 1]);
-  const opacityProgress = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
-  
 
   return (
-    <div>
-      <h1 className="xl:text-[2.8vw] text-[7vw] py-12 font-space-grotesk uppercase font-bold text-center">
+    <div className="mb-40 mx-auto">
+      <h1 className="xl:text-[2.8vw] text-[7vw] py-12 mb font-space-grotesk uppercase font-bold text-center">
         Services
       </h1>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-5 px-8 w-full justify-center">
+      <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-5 justify-items-center px-8 w-full justify-center">
         {serviceData.map((data, index) => (
-          <motion.div
-            ref={ref}
-            style={{
-              scale: scaleProgress,
-              opacity: opacityProgress,
-            }}
+          <div
             key={index}
-            className="py-5 border border-slate-200 border-opacity-50 lg:w-[18vw] shadow-md rounded-xl translate-x-1 ease-linear"
+            className="py-5 border w-[60vw] md:w-[40vw] lg:w-[35vw] xl:w-[20vw] border-slate-200 border-opacity-50 shadow-md rounded-xl translate-x-1 transform ease-linear  
+            transition-transform duration-500"
           >
             <div>
               <img
@@ -72,7 +54,7 @@ const NewService = () => {
                 {data.description}
               </p>
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
     </div>

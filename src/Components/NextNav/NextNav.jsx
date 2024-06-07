@@ -35,8 +35,8 @@ const NextNav = () => {
     },
     {
       title: "Dashboard",
-      path: "/dashboard"
-    }
+      path: "/dashboard",
+    },
   ];
 
   const handleMenu = contextSafe(() => {
@@ -55,9 +55,15 @@ const NextNav = () => {
         duration: 0.5,
         ease: "power3.in",
       });
-      tl.from(".linkAnime", { x: -100, duration: 1.5, opacity:0, ease: "power4.out", stagger:{
-        ease: 1
-      } });
+      tl.from(".linkAnime", {
+        x: -100,
+        duration: 1.5,
+        opacity: 0,
+        ease: "power4.out",
+        stagger: {
+          ease: 1,
+        },
+      });
     }
   });
 
@@ -76,7 +82,7 @@ const NextNav = () => {
             </button>
             <h1 className="uppercase inline-flex gap-3 items-center text-xl md:text-2xl font-bold bg-gradient-to-br from-yellow-400 via-red-400 to-violet-500 bg-clip-text text-transparent">
               XTreme Camp
-              <Svgs />
+              <Svgs width={8} height={8} />
             </h1>
           </div>
           <div className="md:flex justify-center hidden flex-1">

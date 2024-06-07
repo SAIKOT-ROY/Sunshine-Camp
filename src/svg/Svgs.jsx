@@ -1,7 +1,7 @@
-const Svgs = () => {
+const Svgs = ({width, height}) => {
   return (
     <svg
-      className="w-8 h-8"
+      className={`w-${width} h-${height}`}
       viewBox="0 0 300.145 300.145"
       xmlns="http://www.w3.org/2000/svg"
     >

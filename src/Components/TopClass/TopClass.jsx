@@ -11,11 +11,11 @@ const TopClass = () => {
   });
 
   return (
-    <div className="my-28">
+    <div className="my-28 mx-auto">
       <h1 className="xl:text-[2.8vw] text-[7vw] py-12 font-space-grotesk uppercase font-bold text-center">
         Programmes
       </h1>
-      <div className="grid md:grid-cols-3 gap-5 mx-auto">
+      <div className="grid md:grid-cols-2 xl:grid-cols-3 justify-center gap-5 md:gap-0 md:gap-y-10 justify-items-center mx-auto">
         {data?.slice(0, 6)?.map((cl) => (
           <RankClass key={cl?._id} cl={cl} isLoading={isLoading}></RankClass>
         ))}
